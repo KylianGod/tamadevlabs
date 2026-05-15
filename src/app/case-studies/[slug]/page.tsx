@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { Section } from "@/components/ui/Section";
+import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/Button";
 import {
   CASE_STUDIES,
@@ -34,17 +33,13 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <>
       <Section className="pt-16 md:pt-24">
-        <Link
-          href="/case-studies"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          All case studies
-        </Link>
-        <span className="text-sm font-medium uppercase tracking-wider text-cyan-400">
-          {study.category}
-        </span>
-        <h1 className="mt-3 text-4xl font-bold text-white md:text-5xl">
+        <PageBreadcrumb
+          backHref="/case-studies"
+          backLabel="All case studies"
+          crumbs={[{ label: "Case Studies", href: "/case-studies" }]}
+          badge={study.category}
+        />
+        <h1 className="text-4xl font-bold text-white md:text-5xl">
           {study.title}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-zinc-400">{study.excerpt}</p>

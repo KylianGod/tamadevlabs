@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { Section } from "@/components/ui/Section";
+import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/Button";
 import { BLOG_POSTS } from "@/lib/data/blog";
 import { SITE } from "@/lib/constants";
@@ -32,15 +31,13 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <Section className="pt-16 md:pt-24">
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to blog
-        </Link>
-        <span className="text-sm font-medium text-cyan-400">{post.category}</span>
-        <h1 className="mt-3 text-4xl font-bold text-white">{post.title}</h1>
+        <PageBreadcrumb
+          backHref="/blog"
+          backLabel="Back to blog"
+          crumbs={[{ label: "Blog", href: "/blog" }]}
+          badge={post.category}
+        />
+        <h1 className="text-4xl font-bold text-white">{post.title}</h1>
         <p className="mt-4 text-zinc-500">
           {post.readTime} read · {new Date(post.date).toLocaleDateString("en-US")}
         </p>
