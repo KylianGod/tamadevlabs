@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { PROCESS_STEPS } from "@/lib/data/process";
 
