@@ -110,7 +110,8 @@ export function Hero() {
               transition={{ duration: 0.85, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="heading-xl text-[#0a0a0a]"
             >
-              We build products for the bold.
+              We build products for the bold
+              <span aria-hidden="true">.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 18 }}
