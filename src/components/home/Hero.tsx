@@ -48,25 +48,28 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-6 pb-10 pt-28 md:px-10 md:pb-14 md:pt-32">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
-          <motion.div {...motionProps(0.05)} className="lg:col-span-7">
-            <h1 className="max-w-5xl text-[clamp(2.75rem,7vw,5.75rem)] font-semibold leading-[1.02] tracking-tight text-[var(--cream)] drop-shadow-[0_2px_24px_rgba(6,20,37,0.55)]">
-              We build products
-              <br />
-              for the bold.
-            </h1>
+          <motion.div
+            {...motionProps(0.05)}
+            className="flex w-full flex-col items-start text-left lg:col-span-7"
+          >
+            <div className="flex w-full max-w-xl flex-col items-start gap-6 md:gap-8">
+              <h1 className="w-full text-[clamp(2.75rem,7vw,5.75rem)] font-semibold leading-[1.05] tracking-tight text-[var(--cream)] drop-shadow-[0_2px_24px_rgba(6,20,37,0.55)]">
+                <span className="block">We build products</span>
+                <span className="block">for the bold.</span>
+              </h1>
 
-            <div className="mt-6 max-w-md md:mt-8">
-              <p className="text-base leading-relaxed text-[var(--cream)]/90 md:text-lg">
+              <p className="w-full max-w-md text-base leading-relaxed text-[var(--cream)]/90 md:text-lg">
                 An engineering studio turning ambition into software. We help
                 startups ship AI products, SaaS platforms, and full stack apps
                 that perform.
               </p>
+
               <Link
                 href="/case-studies"
-                className="link-underline mt-4 inline-flex text-[var(--cream)] md:mt-5"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--cream)] transition-opacity hover:opacity-80 md:text-base"
               >
                 Explore our work
-                <ArrowUpRight className="h-4 w-4" />
+                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </Link>
             </div>
           </motion.div>
