@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { LogoMark } from "@/components/ui/LogoMark";
 import { HERO_NAV_LINKS, SITE } from "@/lib/constants";
 
 export function HeroNav() {
@@ -13,13 +14,12 @@ export function HeroNav() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10 md:py-8">
-        <Link
-          href="/"
-          className="text-sm font-semibold uppercase tracking-[0.18em] text-white md:text-base"
-        >
-          {SITE.name}
-          <span className="text-white/50">®</span>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10">
+        <Link href="/" className="flex items-center gap-3 text-white">
+          <LogoMark className="h-10 w-10 md:h-11 md:w-11" />
+          <span className="font-serif text-xl tracking-tight md:text-2xl">
+            {SITE.name}
+          </span>
         </Link>
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
