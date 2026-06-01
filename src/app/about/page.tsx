@@ -91,7 +91,13 @@ export default function AboutPage() {
 
       <Section tone="ink">
         <div className="text-center">
-          <Button href={SITE.bookingUrl} external variant="dark" size="lg">
+          <Button
+            href={SITE.bookingUrl}
+            external
+            variant="dark"
+            size="lg"
+            className="!border-[var(--accent)] !bg-[var(--accent)] !text-[var(--cream)] hover:!bg-[var(--accent)] hover:!opacity-90"
+          >
             Work with us
           </Button>
         </div>
