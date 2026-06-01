@@ -8,6 +8,14 @@ export const SITE = {
     process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://cal.com/tamadevlabs/discovery",
 } as const;
 
+/** Pill navigation shown on the home hero (Forma-style) */
+export const HERO_NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/case-studies", label: "Projects" },
+  { href: "/blog", label: "Blog" },
+] as const;
+
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },

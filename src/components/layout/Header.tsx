@@ -49,7 +49,7 @@ export function Header() {
 
         <button
           type="button"
-          className="rounded-full p-2 text-[#0a0a0a] hover:bg-[#0a0a0a]/5 lg:hidden"
+          className="rounded-full p-2 text-[#f5f5f5] hover:bg-white/10 lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >

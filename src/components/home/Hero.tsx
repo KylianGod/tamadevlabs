@@ -1,196 +1,107 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { motion, useReducedMotion } from "framer-motion";
+import { HeroNav } from "@/components/home/HeroNav";
 import { CASE_STUDIES } from "@/lib/data/case-studies";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const featured = CASE_STUDIES[0];
-  const ref = useRef<HTMLElement | null>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const cardY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduceMotion ? [0, 0] : [0, 44],
-  );
-  const cardRotate = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduceMotion ? [0, 0] : [1.5, -3.5],
-  );
-  const haloX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduceMotion ? [0, 0] : [0, 96],
-  );
-  const haloY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduceMotion ? [0, 0] : [0, 72],
-  );
+  const motionProps = (delay: number) =>
+    reduceMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: 28 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.85, delay, ease },
+        };
 
   return (
-    <motion.section
-      ref={ref}
-      className="relative overflow-hidden border-b border-[#ff5533]/12 bg-[#0f0f0f] text-white"
-      style={{
-        background:
-          "radial-gradient(circle at 22% 28%, rgba(255, 102, 82, 0.35), transparent 32%), radial-gradient(circle at 78% 65%, rgba(255, 102, 82, 0.28), transparent 26%), linear-gradient(180deg, #1a1a1a 0%, #141414 50%, #0f0f0f 100%)",
-      }}
-    >
+    <section className="relative min-h-[100svh] overflow-hidden">
+      <Image
+        src="/hero-bg.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-center scale-105"
+        sizes="100vw"
+      />
+
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-60"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(255, 102, 82, 0.12) 0%, rgba(255, 102, 82, 0.02) 20%, transparent 40%, transparent 60%, rgba(255, 102, 82, 0.08) 100%)",
-        }}
+        className="absolute inset-0 bg-black/50 backdrop-blur-[3px]"
       />
-      <motion.div
+      <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-28 top-8 h-[30rem] w-[30rem] rounded-full blur-3xl"
-        style={{
-          x: haloX,
-          y: haloY,
-          background:
-            "radial-gradient(circle, rgba(255, 102, 82, 0.32), rgba(255, 102, 82, 0))",
-        }}
+        className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/70"
       />
-      <motion.div
+      <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-4rem] top-20 h-[28rem] w-[28rem] rounded-full blur-3xl"
-        style={{
-          x: haloX,
-          y: haloY,
-          background:
-            "radial-gradient(circle, rgba(255, 102, 82, 0.26), rgba(255, 102, 82, 0))",
-        }}
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,85,51,0.12),transparent_55%)]"
       />
 
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_58%)] opacity-80"
-      />
+      <HeroNav />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-10 md:px-10 md:pb-16 md:pt-14 lg:min-h-[calc(100vh-5rem)]">
-        <div className="grid gap-12 lg:min-h-[calc(100vh-8rem)] lg:grid-cols-12 lg:items-center">
-          <div className="relative z-10 lg:col-span-7">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="eyebrow mb-5 text-white/60"
-            >
-              AI & Full-Stack Engineering
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="heading-xl max-w-4xl text-white"
-            >
-              We build AI products
-              <br />
-              for founders who move fast.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-white/72"
-            >
-              We design and ship AI systems, SaaS platforms, and full-stack
-              products that feel premium, move quickly, and convert.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-10 flex flex-wrap items-center gap-4"
-            >
-              <Button href="/contact" size="lg" variant="dark">
-                Get started
-              </Button>
-              <Link
-                href="/case-studies"
-                className="link-underline text-white"
-              >
-                Explore our work
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-          </div>
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-6 pb-10 pt-28 md:px-10 md:pb-14 md:pt-32">
+        <motion.div {...motionProps(0.05)} className="flex flex-1 items-center">
+          <h1 className="max-w-5xl text-[clamp(2.75rem,7vw,5.75rem)] font-semibold leading-[1.02] tracking-tight text-white">
+            We build products
+            <br />
+            for the bold.
+          </h1>
+        </motion.div>
 
-          <div className="relative z-10 lg:col-span-5">
-            <motion.div
-              style={{ y: cardY, rotate: cardRotate }}
-              className="relative mx-auto max-w-[30rem]"
+        <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-8">
+          <motion.div {...motionProps(0.14)} className="lg:col-span-7">
+            <p className="max-w-md text-base leading-relaxed text-white/78 md:text-lg">
+              An engineering studio turning ambition into software. We help
+              startups ship AI products, SaaS platforms, and full-stack apps that
+              perform.
+            </p>
+            <Link
+              href="/case-studies"
+              className="link-underline mt-6 inline-flex text-white"
             >
-              <div className="absolute -inset-6 rounded-[2.25rem] bg-[radial-gradient(circle_at_top,rgba(255,102,82,0.35),transparent_48%),radial-gradient(circle_at_bottom_right,rgba(255,102,82,0.2),transparent_38%)] blur-2xl" />
-              <Link
-                href={`/case-studies/${featured.slug}`}
-                className="group relative block overflow-hidden rounded-[2rem] border border-[#ff5533]/20 bg-[#1a1a1a]/60 shadow-[0_30px_80px_rgba(0,0,0,0.65)] backdrop-blur-md"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#0e1218]">
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,102,82,0.25),transparent_24%),radial-gradient(circle_at_72%_70%,rgba(255,102,82,0.18),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.18))]"
-                  />
-                  <Image
-                    src={featured.image}
-                    alt={featured.title}
-                    fill
-                    className="object-cover opacity-60 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 400px"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,6,10,0.05)_0%,rgba(3,6,10,0.4)_60%,rgba(3,6,10,0.82)_100%)]" />
+              Explore our work
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
 
-                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/14 bg-black/40 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-white/72 backdrop-blur-md">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff5533]" />
-                    Featured project
-                  </div>
-
-                  <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/12 bg-black/28 p-4 backdrop-blur-xl">
-                    <p className="text-sm uppercase tracking-[0.24em] text-white/52">
-                      {featured.category}
-                    </p>
-                    <p className="mt-2 font-serif text-2xl leading-tight text-white">
-                      {featured.title}
-                    </p>
-                    <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/72">
-                      {featured.excerpt}
-                    </p>
-                    <div className="mt-4 flex items-center justify-between gap-3 text-sm text-white/80">
-                      <span>View case study</span>
-                      <ArrowUpRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-wrap items-center gap-4 border-t border-[#ff5533]/12 pt-8 text-sm text-white/70 md:mt-16">
-          <Link
-            href="/about"
-            className="link-underline text-white"
+          <motion.div
+            {...motionProps(0.22)}
+            className="flex justify-start lg:col-span-5 lg:justify-end"
           >
-            Learn more about our story
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
+            <Link
+              href={`/case-studies/${featured.slug}`}
+              className="group relative block w-full max-w-[17rem] overflow-hidden rounded-2xl border border-white/20 shadow-[0_24px_60px_rgba(0,0,0,0.45)] sm:max-w-[19rem]"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={featured.image}
+                  alt={featured.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="304px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">
+                    Featured project
+                  </p>
+                  <p className="mt-1 font-medium leading-snug text-white">
+                    {featured.title}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

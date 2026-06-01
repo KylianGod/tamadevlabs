@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -35,9 +34,7 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-[#f4f3ee] text-[#0a0a0a]">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
