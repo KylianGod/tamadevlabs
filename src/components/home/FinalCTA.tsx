@@ -10,7 +10,7 @@ export function FinalCTA() {
         <h2 className="heading-md text-center text-[var(--cream)]">
           Ready to build something great?
         </h2>
-        <div className="mx-auto mt-8 flex w-full max-w-md flex-col items-center text-center">
+        <div className="mx-auto mt-6 flex w-full max-w-md flex-col items-center text-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/final-cta/discovery.svg"
@@ -19,20 +19,21 @@ export function FinalCTA() {
             className="final-cta-illustration"
             draggable={false}
           />
-          <p className="mt-6 text-on-dark-muted">
-            Book a free discovery call. We&apos;ll talk goals, timeline, and how
-            we can help you ship.
-          </p>
-          <Button
-            href={SITE.bookingUrl}
-            external
-            variant="dark"
-            size="lg"
-            className="mt-8"
-          >
-            Get started
-            <ArrowUpRight className="h-4 w-4" />
-          </Button>
+          <div className="-mt-3 flex w-full flex-col items-center gap-4 md:-mt-5 md:gap-5">
+            <p className="text-on-dark-muted">
+              Book a free discovery call. We&apos;ll talk goals, timeline, and how
+              we can help you ship.
+            </p>
+            <Button
+              href={SITE.bookingUrl}
+              external
+              variant="dark"
+              size="lg"
+            >
+              Get started
+              <ArrowUpRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </Section>

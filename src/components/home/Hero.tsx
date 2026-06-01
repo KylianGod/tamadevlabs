@@ -55,7 +55,9 @@ export function Hero() {
             <div className="flex w-full max-w-xl flex-col items-start gap-6 md:gap-8">
               <h1 className="w-full text-[clamp(2.75rem,7vw,5.75rem)] font-semibold leading-[1.05] tracking-tight text-[var(--cream)] drop-shadow-[0_2px_24px_rgba(6,20,37,0.55)]">
                 <span className="block">We build products</span>
-                <span className="block">for the bold.</span>
+                <span className="block">
+                  for the <span className="text-[var(--accent)]">bold.</span>
+                </span>
               </h1>
 
               <p className="w-full max-w-md text-base leading-relaxed text-[var(--cream)]/90 md:text-lg">
