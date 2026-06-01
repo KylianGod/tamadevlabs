@@ -13,11 +13,11 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#0a0a0a]/8 bg-[#f4f3ee]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#ff5533]/12 bg-[#0f0f0f]/90 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10">
         <Link
           href="/"
-          className="flex items-center gap-3 text-[#0a0a0a]"
+          className="flex items-center gap-3 text-[#f5f5f5]"
         >
           <LogoMark className="h-10 w-10 md:h-11 md:w-11" />
           <span className="font-serif text-xl tracking-tight md:text-2xl">
@@ -32,8 +32,8 @@ export function Header() {
               href={link.href}
               className={`text-sm transition-opacity ${
                 pathname === link.href
-                  ? "font-medium text-[#0a0a0a]"
-                  : "text-[#6b6b6b] hover:text-[#0a0a0a]"
+                  ? "font-medium text-[#f5f5f5]"
+                  : "text-[#b8b8b8] hover:text-[#f5f5f5]"
               }`}
             >
               {link.label}

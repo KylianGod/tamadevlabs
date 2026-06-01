@@ -34,7 +34,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#6b6b6b] transition-colors hover:text-[#0a0a0a]"
+                    className="text-sm text-[#b8b8b8] transition-colors hover:text-[#f5f5f5]"
                   >
                     {link.label}
                   </Link>
@@ -45,7 +45,7 @@ export function Footer() {
 
           <div className="lg:col-span-4">
             <h3 className="eyebrow mb-5">About</h3>
-            <p className="text-sm leading-relaxed text-[#6b6b6b]">
+            <p className="text-sm leading-relaxed text-[#b8b8b8]">
               TamadevLabs is an engineering studio specializing in AI, SaaS, and
               full-stack products for founders who want to ship fast.
             </p>

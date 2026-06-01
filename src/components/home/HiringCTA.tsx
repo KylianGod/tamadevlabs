@@ -5,13 +5,13 @@ import { Button } from "@/components/ui/Button";
 export function HiringCTA() {
   return (
     <Section>
-      <div className="flex flex-col items-start justify-between gap-8 rounded-2xl border border-[#0a0a0a]/8 bg-white p-8 md:flex-row md:items-center md:p-12">
+      <div className="flex flex-col items-start justify-between gap-8 rounded-2xl border border-[#ff5533]/20 bg-[#1a1a1a] p-8 md:flex-row md:items-center md:p-12">
         <div className="max-w-xl">
           <p className="eyebrow mb-4">Careers</p>
-          <h2 className="font-serif text-2xl text-[#0a0a0a] md:text-3xl">
+          <h2 className="font-serif text-2xl text-[#f5f5f5] md:text-3xl">
             Join our remote engineering team
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-[#6b6b6b]">
+          <p className="mt-3 text-sm leading-relaxed text-[#b8b8b8]">
             We&apos;re looking for developers who love AI, clean code, and
             shipping fast.
           </p>

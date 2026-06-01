@@ -49,7 +49,7 @@ export function StatsSection() {
   return (
     <Section>
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="heading-md text-[#0a0a0a]">
+        <h2 className="heading-md text-[#f5f5f5]">
           More than a vendor. A technical partner.
         </h2>
       </div>
@@ -58,13 +58,13 @@ export function StatsSection() {
         {STATS.map((stat) => (
           <div
             key={stat.index}
-            className="border-t border-[#0a0a0a]/12 pt-6"
+            className="border-t border-[#ff5533]/12 pt-6"
           >
             <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-            <p className="mt-4 text-sm leading-relaxed text-[#6b6b6b]">
+            <p className="mt-4 text-sm leading-relaxed text-[#b8b8b8]">
               {stat.label}
             </p>
-            <p className="mt-6 text-xs text-[#9a9a9a]">[{stat.index}]</p>
+            <p className="mt-6 text-xs text-[#b8b8b8]">[{stat.index}]</p>
           </div>
         ))}
       </div>

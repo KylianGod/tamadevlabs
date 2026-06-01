@@ -9,7 +9,7 @@ export function TestimonialsSection() {
   const featured = TESTIMONIALS[active];
 
   return (
-    <Section dark className="border-y border-[#0a0a0a]/8">
+    <Section dark className="border-y border-[#ff5533]/12">
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <p className="eyebrow mb-4 text-[#9a9a9a]">Testimonials</p>

@@ -40,7 +40,7 @@ export function FAQSection() {
                   </span>
                 </button>
                 {isOpen && (
-                  <p className="pb-6 text-sm leading-relaxed text-[#6b6b6b]">
+                  <p className="pb-6 text-sm leading-relaxed text-[#b8b8b8]">
                     {faq.answer}
                   </p>
                 )}

@@ -12,14 +12,14 @@ export function CaseStudiesPreview() {
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="eyebrow mb-4">Portfolio</p>
-          <h2 className="heading-md text-[#0a0a0a]">
+          <h2 className="heading-md text-[#f5f5f5]">
             Explore some of our work
           </h2>
-          <p className="mt-2 font-serif text-2xl text-[#9a9a9a] md:text-3xl">
+          <p className="mt-2 font-serif text-2xl text-[#b8b8b8] md:text-3xl">
             Featured projects
           </p>
         </div>
-        <Link href="/case-studies" className="link-underline text-[#0a0a0a]">
+        <Link href="/case-studies" className="link-underline text-[#f5f5f5]">
           All projects
           <ArrowUpRight className="h-4 w-4" />
         </Link>
