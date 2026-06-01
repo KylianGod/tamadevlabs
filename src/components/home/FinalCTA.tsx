@@ -8,7 +8,15 @@ export function FinalCTA() {
     <Section tone="cream" className="pb-28">
       <div className="rounded-2xl bg-[var(--ink)] px-8 py-16 text-center md:px-16 md:py-20">
         <h2 className="heading-md text-[var(--cream)]">Ready to build something great?</h2>
-        <p className="mx-auto mt-4 max-w-md text-on-dark-muted">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/final-cta/discovery.svg"
+          alt=""
+          aria-hidden
+          className="final-cta-illustration mx-auto mt-8"
+          draggable={false}
+        />
+        <p className="mx-auto mt-6 max-w-md text-on-dark-muted">
           Book a free discovery call. We&apos;ll talk goals, timeline, and how
           we can help you ship.
         </p>

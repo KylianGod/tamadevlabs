@@ -187,6 +187,19 @@ body {
   filter: brightness(0);
 }
 
+.final-cta-illustration {
+  height: 5rem;
+  width: auto;
+  opacity: 0.92;
+  filter: brightness(0) invert(1);
+}
+
+@media (min-width: 768px) {
+  .final-cta-illustration {
+    height: 6rem;
+  }
+}
+
 .case-study-visual {
   display: flex;
   align-items: center;
