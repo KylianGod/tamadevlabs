@@ -60,7 +60,6 @@ export function StatsSection() {
           >
             <AnimatedNumber value={stat.value} suffix={stat.suffix} />
             <p className="mt-4 text-sm leading-relaxed text-body">{stat.label}</p>
-            <p className="mt-6 text-xs text-body-soft">[{stat.index}]</p>
           </div>
         ))}
       </div>
