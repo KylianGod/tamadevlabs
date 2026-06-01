@@ -41,18 +41,18 @@ export function Hero() {
   return (
     <motion.section
       ref={ref}
-      className="relative overflow-hidden border-b border-white/10 bg-[#070a0f] text-white"
+      className="relative overflow-hidden border-b border-[#ff5533]/12 bg-[#0f0f0f] text-white"
       style={{
         background:
-          "radial-gradient(circle at 18% 22%, rgba(255, 102, 77, 0.22), transparent 22%), radial-gradient(circle at 72% 18%, rgba(72, 168, 255, 0.18), transparent 20%), radial-gradient(circle at 78% 76%, rgba(255, 102, 77, 0.24), transparent 18%), linear-gradient(180deg, #071018 0%, #090d14 55%, #0d1118 100%)",
+          "radial-gradient(circle at 22% 28%, rgba(255, 102, 82, 0.35), transparent 32%), radial-gradient(circle at 78% 65%, rgba(255, 102, 82, 0.28), transparent 26%), linear-gradient(180deg, #1a1a1a 0%, #141414 50%, #0f0f0f 100%)",
       }}
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-70"
+        className="pointer-events-none absolute inset-0 opacity-60"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255, 102, 77, 0.15) 0%, rgba(255, 102, 77, 0.02) 18%, transparent 38%, transparent 64%, rgba(72, 168, 255, 0.08) 100%)",
+            "linear-gradient(90deg, rgba(255, 102, 82, 0.12) 0%, rgba(255, 102, 82, 0.02) 20%, transparent 40%, transparent 60%, rgba(255, 102, 82, 0.08) 100%)",
         }}
       />
       <motion.div
@@ -62,7 +62,7 @@ export function Hero() {
           x: haloX,
           y: haloY,
           background:
-            "radial-gradient(circle, rgba(255, 102, 77, 0.2), rgba(255, 102, 77, 0))",
+            "radial-gradient(circle, rgba(255, 102, 82, 0.32), rgba(255, 102, 82, 0))",
         }}
       />
       <motion.div
@@ -72,7 +72,7 @@ export function Hero() {
           x: haloX,
           y: haloY,
           background:
-            "radial-gradient(circle, rgba(72, 168, 255, 0.18), rgba(72, 168, 255, 0))",
+            "radial-gradient(circle, rgba(255, 102, 82, 0.26), rgba(255, 102, 82, 0))",
         }}
       />
 
@@ -88,7 +88,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="eyebrow mb-5 text-white/70"
+              className="eyebrow mb-5 text-white/60"
             >
               AI & Full-Stack Engineering
             </motion.p>
@@ -135,15 +135,15 @@ export function Hero() {
               style={{ y: cardY, rotate: cardRotate }}
               className="relative mx-auto max-w-[30rem]"
             >
-              <div className="absolute -inset-6 rounded-[2.25rem] bg-[radial-gradient(circle_at_top,rgba(255,102,77,0.28),transparent_48%),radial-gradient(circle_at_bottom_right,rgba(72,168,255,0.22),transparent_38%)] blur-2xl" />
+              <div className="absolute -inset-6 rounded-[2.25rem] bg-[radial-gradient(circle_at_top,rgba(255,102,82,0.35),transparent_48%),radial-gradient(circle_at_bottom_right,rgba(255,102,82,0.2),transparent_38%)] blur-2xl" />
               <Link
                 href={`/case-studies/${featured.slug}`}
-                className="group relative block overflow-hidden rounded-[2rem] border border-white/12 bg-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-md"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ff5533]/20 bg-[#1a1a1a]/60 shadow-[0_30px_80px_rgba(0,0,0,0.65)] backdrop-blur-md"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-[#0e1218]">
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,102,77,0.2),transparent_24%),radial-gradient(circle_at_72%_70%,rgba(72,168,255,0.18),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.18))]"
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,102,82,0.25),transparent_24%),radial-gradient(circle_at_72%_70%,rgba(255,102,82,0.18),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.18))]"
                   />
                   <Image
                     src={featured.image}
@@ -155,8 +155,8 @@ export function Hero() {
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,6,10,0.05)_0%,rgba(3,6,10,0.4)_60%,rgba(3,6,10,0.82)_100%)]" />
 
-                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/14 bg-black/20 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-white/72 backdrop-blur-md">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff664d]" />
+                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/14 bg-black/40 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-white/72 backdrop-blur-md">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff5533]" />
                     Featured project
                   </div>
 
@@ -181,7 +181,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center gap-4 border-t border-white/10 pt-8 text-sm text-white/70 md:mt-16">
+        <div className="mt-12 flex flex-wrap items-center gap-4 border-t border-[#ff5533]/12 pt-8 text-sm text-white/70 md:mt-16">
           <Link
             href="/about"
             className="link-underline text-white"

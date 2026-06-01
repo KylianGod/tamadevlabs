@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --accent: #0a0a0a;
-  --accent-warm: #d9a441;
-  --background: #f4f3ee;
-  --card: #ffffff;
-  --border: rgba(10, 10, 10, 0.12);
-  --border-light: rgba(10, 10, 10, 0.06);
-  --foreground: #0a0a0a;
-  --muted: #6b6b6b;
+  --accent: #ff5533;
+  --accent-warm: #ff6652;
+  --background: #1a1a1a;
+  --card: #2a2a2a;
+  --border: rgba(255, 102, 82, 0.15);
+  --border-light: rgba(255, 102, 82, 0.08);
+  --foreground: #f5f5f5;
+  --muted: #b8b8b8;
   --muted-light: #9a9a9a;
-  --surface-dark: #0a0a0a;
-  --surface-dark-muted: #1a1a1a;
+  --surface-dark: #0f0f0f;
+  --surface-dark-muted: #1f1f1f;
 }
 
 @theme inline {
@@ -31,9 +31,9 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(217, 164, 65, 0.12), transparent 32%),
-    radial-gradient(circle at 85% 12%, rgba(10, 10, 10, 0.06), transparent 26%),
-    linear-gradient(180deg, #f8f6f0 0%, var(--background) 40%, #efece4 100%);
+    radial-gradient(circle at 15% 30%, rgba(255, 102, 82, 0.28), transparent 35%),
+    radial-gradient(circle at 85% 60%, rgba(255, 102, 82, 0.2), transparent 28%),
+    linear-gradient(180deg, #1a1a1a 0%, #141414 50%, #0f0f0f 100%);
   color: var(--foreground);
   font-family: var(--font-poppins), system-ui, sans-serif;
 }
@@ -43,11 +43,11 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(rgba(10, 10, 10, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(circle at center, black 58%, transparent 100%);
-  opacity: 0.32;
+  opacity: 0.18;
 }
 
 ::selection {
