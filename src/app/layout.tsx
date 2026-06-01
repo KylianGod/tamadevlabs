@@ -34,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[#0f0f0f] text-[#f5f5f5]">
+      <body className="flex min-h-full flex-col bg-[#f4f3ee] text-[#0a0a0a]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

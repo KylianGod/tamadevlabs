@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: Props) {
           crumbs={[{ label: "Blog", href: "/blog" }]}
           badge={post.category}
         />
-        <h1 className="heading-lg max-w-3xl text-[#f5f5f5]">{post.title}</h1>
+        <h1 className="heading-lg max-w-3xl text-[#0a0a0a]">{post.title}</h1>
         <p className="mt-4 text-sm text-[#9a9a9a]">
           {post.readTime} read ·{" "}
           {new Date(post.date).toLocaleDateString("en-US", {

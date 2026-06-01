@@ -128,5 +128,5 @@ body::before {
 
 .section-dark {
   background: var(--surface-dark);
-  color: var(--foreground);
+  color: #f4f3ee;
 }
