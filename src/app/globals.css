@@ -188,15 +188,15 @@ body {
 }
 
 .final-cta-illustration {
-  height: 5rem;
+  height: 5.5rem;
   width: auto;
-  opacity: 0.92;
-  filter: brightness(0) invert(1);
+  opacity: 1;
+  filter: drop-shadow(0 10px 28px rgba(255, 85, 51, 0.45));
 }
 
 @media (min-width: 768px) {
   .final-cta-illustration {
-    height: 6rem;
+    height: 7rem;
   }
 }
 
