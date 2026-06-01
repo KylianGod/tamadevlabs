@@ -44,7 +44,12 @@ export default function CareersPage() {
       <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="Careers"
-          title="Build with us from anywhere"
+          title={
+            <>
+              Build with us from{" "}
+              <span className="text-[var(--accent)]">anywhere</span>
+            </>
+          }
           description="We're a distributed team of senior engineers shipping AI and full stack products for clients worldwide."
         />
       </Section>
