@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import { CaseStudyVisual } from "@/components/case-studies/CaseStudyVisual";
 import { Section } from "@/components/ui/Section";
 import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/Button";
@@ -53,14 +53,13 @@ export default async function CaseStudyPage({ params }: Props) {
               ))}
             </div>
           </div>
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl lg:col-span-5">
-            <Image
+          <div className="overflow-hidden rounded-2xl lg:col-span-5">
+            <CaseStudyVisual
               src={study.image}
               alt={study.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 500px"
+              variant="hero"
               priority
+              sizes="(max-width: 1024px) 100vw, 500px"
             />
           </div>
         </div>

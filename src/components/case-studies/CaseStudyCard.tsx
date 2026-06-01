@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { CaseStudyVisual } from "@/components/case-studies/CaseStudyVisual";
 import type { CaseStudy } from "@/lib/data/case-studies";
 
 type CaseStudyCardProps = {
@@ -16,15 +16,7 @@ export function CaseStudyCard({ study, featured = false }: CaseStudyCardProps) {
         featured ? "sm:col-span-2 lg:col-span-2" : ""
       }`}
     >
-      <div className={`relative overflow-hidden ${featured ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
-        <Image
-          src={study.image}
-          alt={study.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-      </div>
+      <CaseStudyVisual src={study.image} alt={study.title} featured={featured} />
       <div className="p-5 md:p-6">
         <div className="flex flex-wrap gap-2">
           {study.tags.map((tag) => (

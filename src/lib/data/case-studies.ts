@@ -32,8 +32,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "CSAT improvement", value: "+24%" },
     ],
     tags: ["AI", "SaaS"],
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&h=700&fit=crop",
+    image: "/case-studies/ai-customer-support.svg",
   },
   {
     slug: "ecommerce-saas",
@@ -54,8 +53,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Uptime", value: "99.9%" },
     ],
     tags: ["SaaS", "E-commerce"],
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&h=700&fit=crop",
+    image: "/case-studies/ecommerce-saas.svg",
   },
   {
     slug: "healthcare-dashboard",
@@ -76,8 +74,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Page load", value: "<1.2s" },
     ],
     tags: ["Healthcare", "Dashboard"],
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=700&fit=crop",
+    image: "/case-studies/healthcare-dashboard.svg",
   },
   {
     slug: "internal-ai-automation",
@@ -98,8 +95,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "ROI timeline", value: "6 weeks" },
     ],
     tags: ["AI", "Automation"],
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&h=700&fit=crop",
+    image: "/case-studies/internal-ai-automation.svg",
   },
 ];
 

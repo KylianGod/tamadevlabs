@@ -187,6 +187,36 @@ body {
   filter: brightness(0);
 }
 
+.case-study-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    165deg,
+    var(--cream-muted) 0%,
+    var(--cream) 45%,
+    var(--cream-deep) 100%
+  );
+}
+
+.case-study-illustration {
+  width: auto;
+  height: min(72%, 14rem);
+  max-width: 88%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.group:hover .case-study-illustration {
+  transform: scale(1.04);
+}
+
+@media (min-width: 768px) {
+  .case-study-illustration {
+    height: min(76%, 16rem);
+  }
+}
+
 .services-marquee-icon {
   height: 4.5rem;
   width: auto;
