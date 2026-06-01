@@ -31,7 +31,7 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <Section className="pt-16 md:pt-24">
+      <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="About us"
           title="Engineering built for founders"
@@ -39,8 +39,8 @@ export default function AboutPage() {
         />
       </Section>
 
-      <Section className="pt-0">
-        <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-[#6b6b6b]">
+      <Section tone="muted" className="pt-0">
+        <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-body">
           <p>
             We started TamadevLabs because too many agencies overpromise and
             underdeliver. Our team is built around senior engineers who have
@@ -54,33 +54,28 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section>
-        <h2 className="heading-md text-center text-[#0a0a0a]">What we believe</h2>
+      <Section tone="cream">
+        <h2 className="heading-md text-center">What we believe</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {VALUES.map((v) => (
-            <div
-              key={v.title}
-              className="rounded-2xl border border-[#0a0a0a]/8 bg-white p-6"
-            >
-              <h3 className="font-serif text-xl text-[#0a0a0a]">{v.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#6b6b6b]">
-                {v.description}
-              </p>
+            <div key={v.title} className="surface-card rounded-2xl p-6">
+              <h3 className="font-serif text-xl text-[var(--ink)]">{v.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-body">{v.description}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section>
-        <h2 className="heading-md text-center text-[#f5f5f5]">Our stack</h2>
-        <p className="mx-auto mt-3 max-w-lg text-center text-[#6b6b6b]">
+      <Section tone="blend">
+        <h2 className="heading-md text-center text-[var(--cream)]">Our stack</h2>
+        <p className="mx-auto mt-3 max-w-lg text-center text-on-dark-muted">
           Modern, battle-tested technologies.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           {TRUST_TECH.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-[#0a0a0a]/12 px-4 py-2 text-sm text-[#6b6b6b]"
+              className="rounded-full border border-[var(--border-cream)] px-4 py-2 text-sm text-[var(--cream)]"
             >
               {tech}
             </span>
@@ -88,9 +83,9 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="ink">
         <div className="text-center">
-          <Button href={SITE.bookingUrl} external size="lg">
+          <Button href={SITE.bookingUrl} external variant="dark" size="lg">
             Work with us
           </Button>
         </div>

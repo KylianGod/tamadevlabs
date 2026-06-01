@@ -8,11 +8,22 @@ import {
   useTransform,
 } from "framer-motion";
 
+export type SectionTone = "cream" | "muted" | "blend" | "ink";
+
+const toneClasses: Record<SectionTone, string> = {
+  cream: "section-tone-cream",
+  muted: "section-tone-muted",
+  blend: "section-tone-blend",
+  ink: "section-tone-ink",
+};
+
 type ScrollSectionProps = {
   id?: string;
   children: ReactNode;
   className?: string;
   containerClassName?: string;
+  tone?: SectionTone;
+  /** @deprecated Use tone="ink" instead */
   dark?: boolean;
 };
 
@@ -21,10 +32,14 @@ export function ScrollSection({
   children,
   className = "",
   containerClassName = "",
+  tone = "cream",
   dark = false,
 }: ScrollSectionProps) {
   const ref = useRef<HTMLElement | null>(null);
   const reduceMotion = useReducedMotion();
+  const resolvedTone: SectionTone = dark ? "ink" : tone;
+  const isDark = resolvedTone === "ink" || resolvedTone === "blend";
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "center center"],
@@ -57,11 +72,11 @@ export function ScrollSection({
     <section
       ref={ref}
       id={id}
-      className={`relative overflow-hidden py-20 md:py-28 ${dark ? "section-dark" : ""} ${className}`}
+      className={`relative overflow-hidden py-20 md:py-28 ${toneClasses[resolvedTone]} ${className}`}
     >
       <motion.div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-current/30 to-transparent"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-current/20 to-transparent"
         style={{ scaleX: progress, transformOrigin: "left" }}
       />
       <motion.div
@@ -70,9 +85,9 @@ export function ScrollSection({
         style={{
           x: orbLeftX,
           y: orbLift,
-          background: dark
-            ? "radial-gradient(circle, rgba(244, 243, 238, 0.16), rgba(244, 243, 238, 0))"
-            : "radial-gradient(circle, rgba(10, 10, 10, 0.08), rgba(10, 10, 10, 0))",
+          background: isDark
+            ? "radial-gradient(circle, rgba(244, 243, 238, 0.12), transparent 70%)"
+            : "radial-gradient(circle, rgba(10, 10, 10, 0.06), transparent 70%)",
         }}
       />
       <motion.div
@@ -81,9 +96,9 @@ export function ScrollSection({
         style={{
           x: orbRightX,
           y: orbLift,
-          background: dark
-            ? "radial-gradient(circle, rgba(217, 164, 65, 0.16), rgba(217, 164, 65, 0))"
-            : "radial-gradient(circle, rgba(217, 164, 65, 0.14), rgba(217, 164, 65, 0))",
+          background: isDark
+            ? "radial-gradient(circle, rgba(255, 85, 51, 0.14), transparent 70%)"
+            : "radial-gradient(circle, rgba(255, 85, 51, 0.08), transparent 70%)",
         }}
       />
 

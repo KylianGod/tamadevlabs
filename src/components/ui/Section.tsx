@@ -1,11 +1,15 @@
 import { type ReactNode } from "react";
-import { ScrollSection } from "@/components/ui/ScrollSection";
+import {
+  ScrollSection,
+  type SectionTone,
+} from "@/components/ui/ScrollSection";
 
 type SectionProps = {
   id?: string;
   children: ReactNode;
   className?: string;
   containerClassName?: string;
+  tone?: SectionTone;
   dark?: boolean;
 };
 
@@ -14,6 +18,7 @@ export function Section({
   children,
   className = "",
   containerClassName = "",
+  tone = "cream",
   dark = false,
 }: SectionProps) {
   return (
@@ -21,11 +26,10 @@ export function Section({
       id={id}
       className={className}
       containerClassName={containerClassName}
+      tone={tone}
       dark={dark}
     >
-      <div className="relative">
-        {children}
-      </div>
+      {children}
     </ScrollSection>
   );
 }

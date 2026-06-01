@@ -23,13 +23,13 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-[#0a0a0a]/12 bg-white px-4 py-3 text-[#0a0a0a] placeholder:text-[#9a9a9a] focus:border-[#0a0a0a]/30 focus:outline-none focus:ring-1 focus:ring-[#0a0a0a]/10";
+    "w-full rounded-xl border border-[var(--border-ink)] bg-white px-4 py-3 text-[var(--ink)] placeholder:text-body-soft focus:border-[var(--ink)]/30 focus:outline-none focus:ring-1 focus:ring-[var(--ink)]/10";
 
   if (submitted) {
     return (
-      <p className="rounded-2xl border border-[#0a0a0a]/12 bg-white p-6 text-center text-sm text-[#6b6b6b]">
+      <p className="surface-card rounded-2xl p-6 text-center text-sm text-body">
         Your email client should open shortly. If it doesn&apos;t, email us at{" "}
-        <a href={`mailto:${SITE.email}`} className="underline text-[#0a0a0a]">
+        <a href={`mailto:${SITE.email}`} className="font-medium text-[var(--ink)] underline">
           {SITE.email}
         </a>
         .
@@ -40,7 +40,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm text-[#6b6b6b]">
+        <label htmlFor="name" className="mb-1.5 block text-sm text-body">
           Name
         </label>
         <input
@@ -52,7 +52,7 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm text-[#6b6b6b]">
+        <label htmlFor="email" className="mb-1.5 block text-sm text-body">
           Email
         </label>
         <input
@@ -65,7 +65,7 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm text-[#6b6b6b]">
+        <label htmlFor="message" className="mb-1.5 block text-sm text-body">
           Message
         </label>
         <textarea

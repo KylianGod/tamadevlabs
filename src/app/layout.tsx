@@ -33,7 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[#f4f3ee] text-[#0a0a0a]">
+      <body className="flex min-h-full flex-col bg-[var(--cream)] text-[var(--ink)]">
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

@@ -2,23 +2,27 @@
 
 :root {
   --accent: #ff5533;
-  --accent-warm: #ff6652;
-  --background: #1a1a1a;
-  --card: #2a2a2a;
-  --border: rgba(255, 102, 82, 0.15);
-  --border-light: rgba(255, 102, 82, 0.08);
-  --foreground: #f5f5f5;
-  --muted: #b8b8b8;
-  --muted-light: #9a9a9a;
-  --surface-dark: #0f0f0f;
-  --surface-dark-muted: #1f1f1f;
+  --cream: #f4f3ee;
+  --cream-muted: #e3e2dc;
+  --cream-deep: #d4d3cd;
+  --ink: #0a0a0a;
+  --ink-muted: #3a3a3a;
+  --ink-soft: #5c5c5c;
+  --border-ink: rgba(10, 10, 10, 0.1);
+  --border-cream: rgba(244, 243, 238, 0.14);
+  --foreground: var(--ink);
+  --muted: var(--ink-soft);
+  --background: var(--cream);
+  --card: #ffffff;
+  --surface-dark: #0a0a0a;
+  --surface-dark-muted: #141414;
 }
 
 @theme inline {
   --color-accent: var(--accent);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
   --color-background: var(--background);
-  --color-border: var(--border);
-  --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --font-sans: var(--font-poppins);
@@ -30,29 +34,14 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at 15% 30%, rgba(255, 102, 82, 0.28), transparent 35%),
-    radial-gradient(circle at 85% 60%, rgba(255, 102, 82, 0.2), transparent 28%),
-    linear-gradient(180deg, #1a1a1a 0%, #141414 50%, #0f0f0f 100%);
-  color: var(--foreground);
+  background: var(--cream);
+  color: var(--ink);
   font-family: var(--font-poppins), system-ui, sans-serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(circle at center, black 58%, transparent 100%);
-  opacity: 0.18;
-}
-
 ::selection {
-  background: rgba(10, 10, 10, 0.12);
-  color: var(--foreground);
+  background: rgba(10, 10, 10, 0.14);
+  color: var(--ink);
 }
 
 .font-serif {
@@ -64,6 +53,7 @@ body::before {
   font-size: clamp(2.75rem, 6vw, 5.5rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .heading-lg {
@@ -71,6 +61,7 @@ body::before {
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .heading-md {
@@ -78,18 +69,102 @@ body::before {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   line-height: 1.15;
   letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .eyebrow {
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-soft);
+}
+
+.section-tone-cream {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.section-tone-cream .eyebrow {
+  color: var(--ink-soft);
+}
+
+.section-tone-muted {
+  background: linear-gradient(180deg, var(--cream-muted) 0%, var(--cream) 100%);
+  color: var(--ink);
+}
+
+.section-tone-blend {
+  background: linear-gradient(
+    160deg,
+    var(--cream) 0%,
+    #b8b7b0 28%,
+    #3a3a38 62%,
+    var(--ink) 100%
+  );
+  color: var(--cream);
+}
+
+.section-tone-blend .heading-md,
+.section-tone-blend .heading-lg,
+.section-tone-blend h2,
+.section-tone-blend h3 {
+  color: var(--cream);
+}
+
+.section-tone-blend .eyebrow {
+  color: rgba(244, 243, 238, 0.65);
+}
+
+.section-tone-blend p {
+  color: rgba(244, 243, 238, 0.82);
+}
+
+.section-tone-ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.section-tone-ink .heading-md,
+.section-tone-ink .heading-lg,
+.section-tone-ink h2,
+.section-tone-ink h3 {
+  color: var(--cream);
+}
+
+.section-tone-ink .eyebrow {
+  color: rgba(244, 243, 238, 0.55);
+}
+
+.text-body {
+  color: var(--ink-muted);
+}
+
+.text-body-soft {
+  color: var(--ink-soft);
+}
+
+.text-on-dark {
+  color: rgba(244, 243, 238, 0.88);
+}
+
+.text-on-dark-muted {
+  color: rgba(244, 243, 238, 0.65);
+}
+
+.surface-card {
+  background: #ffffff;
+  border: 1px solid var(--border-ink);
+  color: var(--ink);
+}
+
+.surface-card-dark {
+  background: rgba(244, 243, 238, 0.06);
+  border: 1px solid var(--border-cream);
+  color: var(--cream);
 }
 
 .link-underline {
-  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -99,12 +174,7 @@ body::before {
 }
 
 .link-underline:hover {
-  opacity: 0.65;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border-light);
+  opacity: 0.7;
 }
 
 .marquee-track {
@@ -126,7 +196,7 @@ body::before {
   }
 }
 
-.section-dark {
-  background: var(--surface-dark);
-  color: #f4f3ee;
+.page-inner {
+  background: var(--cream);
+  color: var(--ink);
 }

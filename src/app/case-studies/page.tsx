@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <>
-      <Section className="pt-16 md:pt-24">
+      <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="Portfolio"
           title="Featured projects"
@@ -23,7 +23,7 @@ export default function CaseStudiesPage() {
         />
       </Section>
 
-      <Section className="pt-0">
+      <Section tone="muted" className="pt-0">
         <div className="grid gap-6 sm:grid-cols-2">
           {CASE_STUDIES.map((study) => (
             <CaseStudyCard key={study.slug} study={study} />
@@ -31,11 +31,11 @@ export default function CaseStudiesPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="ink">
         <div className="text-center">
-          <p className="text-[#6b6b6b]">Have a similar challenge?</p>
+          <p className="text-on-dark-muted">Have a similar challenge?</p>
           <div className="mt-4">
-            <Button href={SITE.bookingUrl} external>
+            <Button href={SITE.bookingUrl} external variant="dark">
               Get started
             </Button>
           </div>

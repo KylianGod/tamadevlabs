@@ -30,15 +30,15 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <Section className="pt-16 md:pt-24">
+      <Section tone="cream" className="pt-16 md:pt-24">
         <PageBreadcrumb
           backHref="/blog"
           backLabel="Back to blog"
           crumbs={[{ label: "Blog", href: "/blog" }]}
           badge={post.category}
         />
-        <h1 className="heading-lg max-w-3xl text-[#0a0a0a]">{post.title}</h1>
-        <p className="mt-4 text-sm text-[#9a9a9a]">
+        <h1 className="heading-lg max-w-3xl">{post.title}</h1>
+        <p className="mt-4 text-sm text-body-soft">
           {post.readTime} read ·{" "}
           {new Date(post.date).toLocaleDateString("en-US", {
             year: "numeric",
@@ -48,10 +48,10 @@ export default async function BlogPostPage({ params }: Props) {
         </p>
       </Section>
 
-      <Section className="pt-0">
+      <Section tone="muted" className="pt-0">
         <div className="mx-auto max-w-2xl">
-          <p className="text-lg leading-relaxed text-[#6b6b6b]">{post.excerpt}</p>
-          <p className="mt-6 leading-relaxed text-[#6b6b6b]">
+          <p className="text-lg leading-relaxed text-body">{post.excerpt}</p>
+          <p className="mt-6 leading-relaxed text-body">
             Full article coming soon. In the meantime, book a call to discuss how
             these ideas apply to your product.
           </p>

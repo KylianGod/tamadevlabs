@@ -11,7 +11,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {!isHome && <Header />}
-      <main className="flex-1">{children}</main>
+      <main className={`flex-1 ${isHome ? "" : "page-inner"}`}>{children}</main>
       <Footer />
     </>
   );

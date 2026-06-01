@@ -12,7 +12,7 @@ export function CaseStudyCard({ study, featured = false }: CaseStudyCardProps) {
   return (
     <Link
       href={`/case-studies/${study.slug}`}
-      className={`group block overflow-hidden rounded-2xl border border-[#0a0a0a]/8 bg-white transition-shadow hover:shadow-lg ${
+      className={`group surface-card block overflow-hidden rounded-2xl transition-shadow hover:shadow-lg ${
         featured ? "sm:col-span-2 lg:col-span-2" : ""
       }`}
     >
@@ -28,18 +28,13 @@ export function CaseStudyCard({ study, featured = false }: CaseStudyCardProps) {
       <div className="p-5 md:p-6">
         <div className="flex flex-wrap gap-2">
           {study.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs uppercase tracking-wider text-[#9a9a9a]"
-            >
+            <span key={tag} className="text-xs uppercase tracking-wider text-body-soft">
               {tag}
             </span>
           ))}
         </div>
-        <h3 className="mt-2 font-serif text-xl text-[#0a0a0a] md:text-2xl">
-          {study.title}
-        </h3>
-        <span className="mt-4 inline-flex items-center gap-1 text-sm text-[#6b6b6b] transition-colors group-hover:text-[#0a0a0a]">
+        <h3 className="mt-2 font-serif text-xl text-[var(--ink)] md:text-2xl">{study.title}</h3>
+        <span className="mt-4 inline-flex items-center gap-1 text-sm text-body transition-colors group-hover:text-[var(--ink)]">
           View project
           <ArrowUpRight className="h-3.5 w-3.5" />
         </span>

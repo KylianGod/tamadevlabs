@@ -33,7 +33,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      <Section className="pt-16 md:pt-24">
+      <Section tone="cream" className="pt-16 md:pt-24">
         <PageBreadcrumb
           backHref="/case-studies"
           backLabel="All projects"
@@ -42,13 +42,13 @@ export default async function CaseStudyPage({ params }: Props) {
         />
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <h1 className="heading-lg text-[#0a0a0a]">{study.title}</h1>
-            <p className="mt-4 max-w-2xl text-lg text-[#6b6b6b]">{study.excerpt}</p>
+            <h1 className="heading-lg">{study.title}</h1>
+            <p className="mt-4 max-w-2xl text-lg text-body">{study.excerpt}</p>
             <div className="mt-8 flex flex-wrap gap-8">
               {study.metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="font-serif text-3xl text-[#0a0a0a]">{m.value}</p>
-                  <p className="text-sm text-[#9a9a9a]">{m.label}</p>
+                  <p className="font-serif text-3xl text-[var(--ink)]">{m.value}</p>
+                  <p className="text-sm text-body-soft">{m.label}</p>
                 </div>
               ))}
             </div>
@@ -66,31 +66,31 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </Section>
 
-      <Section className="pt-0">
+      <Section tone="muted" className="pt-0">
         <div className="grid gap-12 lg:grid-cols-3">
           <div className="space-y-10 lg:col-span-2">
             <div>
-              <h2 className="font-serif text-xl text-[#0a0a0a]">The challenge</h2>
-              <p className="mt-3 leading-relaxed text-[#6b6b6b]">{study.problem}</p>
+              <h2 className="font-serif text-xl text-[var(--ink)]">The challenge</h2>
+              <p className="mt-3 leading-relaxed text-body">{study.problem}</p>
             </div>
             <div>
-              <h2 className="font-serif text-xl text-[#0a0a0a]">Our solution</h2>
-              <p className="mt-3 leading-relaxed text-[#6b6b6b]">{study.solution}</p>
+              <h2 className="font-serif text-xl text-[var(--ink)]">Our solution</h2>
+              <p className="mt-3 leading-relaxed text-body">{study.solution}</p>
             </div>
             <div>
-              <h2 className="font-serif text-xl text-[#0a0a0a]">The outcome</h2>
-              <p className="mt-3 leading-relaxed text-[#6b6b6b]">{study.outcome}</p>
+              <h2 className="font-serif text-xl text-[var(--ink)]">The outcome</h2>
+              <p className="mt-3 leading-relaxed text-body">{study.outcome}</p>
             </div>
           </div>
-          <aside className="h-fit rounded-2xl border border-[#0a0a0a]/8 bg-white p-6">
-            <h3 className="text-sm font-medium uppercase tracking-wider text-[#9a9a9a]">
+          <aside className="surface-card h-fit rounded-2xl p-6">
+            <h3 className="text-sm font-medium uppercase tracking-wider text-body-soft">
               Tech stack
             </h3>
             <ul className="mt-4 flex flex-wrap gap-2">
               {study.stack.map((tech) => (
                 <li
                   key={tech}
-                  className="rounded-full border border-[#0a0a0a]/12 px-3 py-1 text-xs text-[#6b6b6b]"
+                  className="rounded-full border border-[var(--border-ink)] px-3 py-1 text-xs text-body"
                 >
                   {tech}
                 </li>
