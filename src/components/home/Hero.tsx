@@ -58,7 +58,7 @@ export function Hero() {
             <div className="mt-6 max-w-md md:mt-8">
               <p className="text-base leading-relaxed text-[var(--cream)]/90 md:text-lg">
                 An engineering studio turning ambition into software. We help
-                startups ship AI products, SaaS platforms, and full-stack apps
+                startups ship AI products, SaaS platforms, and full stack apps
                 that perform.
               </p>
               <Link

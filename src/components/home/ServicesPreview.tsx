@@ -15,7 +15,7 @@ export function ServicesPreview() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-lg leading-relaxed text-body">
-              We design and ship AI systems, SaaS platforms, and full-stack
+              We design and ship AI systems, SaaS platforms, and full stack
               products that connect with users and drive real business results.
             </p>
           </div>

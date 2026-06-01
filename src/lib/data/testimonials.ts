@@ -10,12 +10,12 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "TamadevLabs shipped our AI support MVP in weeks, not months. Their technical depth and communication made them feel like an extension of our team.",
     author: "Sarah Chen",
-    role: "Co-founder & CTO",
+    role: "Co founder & CTO",
     company: "Flowbase",
   },
   {
     quote:
-      "We needed senior full-stack engineers who could own features end-to-end. TamadevLabs delivered exactly that—clean code, fast iterations, zero drama.",
+      "We needed senior full stack engineers who could own features end to end. TamadevLabs delivered exactly that: clean code, fast iterations, zero drama.",
     author: "Marcus Rivera",
     role: "VP Engineering",
     company: "Cartify",

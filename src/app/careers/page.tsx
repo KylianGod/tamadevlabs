@@ -8,19 +8,19 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Join TamadevLabs as a remote developer. Work on AI and full-stack projects with global clients.",
+    "Join TamadevLabs as a remote developer. Work on AI and full stack projects with global clients.",
 };
 
 const ROLES = [
   {
-    title: "Senior Full-Stack Engineer",
-    type: "Full-time · Remote",
+    title: "Senior Full Stack Engineer",
+    type: "Full time · Remote",
     description:
-      "Build Next.js and Node.js applications end-to-end. 5+ years experience, strong TypeScript, and SaaS delivery background.",
+      "Build Next.js and Node.js applications end to end. 5+ years experience, strong TypeScript, and SaaS delivery background.",
   },
   {
     title: "AI / ML Engineer",
-    type: "Full-time · Remote",
+    type: "Full time · Remote",
     description:
       "Design RAG systems, agents, and LLM integrations. Experience with OpenAI, LangChain, and production AI deployments.",
   },
@@ -45,7 +45,7 @@ export default function CareersPage() {
         <PageHeader
           eyebrow="Careers"
           title="Build with us from anywhere"
-          description="We're a distributed team of senior engineers shipping AI and full-stack products for clients worldwide."
+          description="We're a distributed team of senior engineers shipping AI and full stack products for clients worldwide."
         />
       </Section>
 
@@ -91,7 +91,7 @@ export default function CareersPage() {
             Don&apos;t see your role?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-on-dark-muted">
-            Send your portfolio and tell us what you&apos;re great at—we&apos;re always
+            Send your portfolio and tell us what you&apos;re great at. We&apos;re always
             open to exceptional talent.
           </p>
           <div className="mt-6">

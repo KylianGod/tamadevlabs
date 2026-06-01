@@ -12,7 +12,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "rag-production-checklist",
     title: "RAG in Production: A Practical Checklist",
     excerpt:
-      "What we learned shipping retrieval-augmented systems for real users—not just demos.",
+      "What we learned shipping retrieval augmented systems for real users, not just demos.",
     date: "2026-04-12",
     readTime: "8 min",
     category: "AI",

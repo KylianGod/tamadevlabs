@@ -9,7 +9,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "See how TamadevLabs delivers AI, SaaS, and full-stack solutions with measurable outcomes.",
+    "See how TamadevLabs delivers AI, SaaS, and full stack solutions with measurable outcomes.",
 };
 
 export default function CaseStudiesPage() {
@@ -19,7 +19,7 @@ export default function CaseStudiesPage() {
         <PageHeader
           eyebrow="Portfolio"
           title="Featured projects"
-          description="Real projects, real metrics—from AI support platforms to healthcare dashboards."
+          description="Real projects, real metrics, from AI support platforms to healthcare dashboards."
         />
       </Section>
 

@@ -4,7 +4,7 @@ const SERVICE_MARQUEE_ITEMS = [
   {
     id: "fullstack",
     src: "/services-marquee/fullstack.svg",
-    alt: "Full-Stack Engineering",
+    alt: "Full Stack Engineering",
   },
   { id: "team", src: "/services-marquee/team.svg", alt: "Team Augmentation" },
 ] as const;

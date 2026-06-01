@@ -48,7 +48,7 @@ export default function ContactPage() {
         <PageHeader
           eyebrow="Contact"
           title="Let's talk about your project"
-          description="Whether you're a founder with an idea or a developer looking to join our team—we'd love to hear from you."
+          description="Whether you're a founder with an idea or a developer looking to join our team, we'd love to hear from you."
         />
       </Section>
 

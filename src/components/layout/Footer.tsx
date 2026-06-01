@@ -47,7 +47,7 @@ export function Footer() {
             <h3 className="eyebrow mb-5">About</h3>
             <p className="text-sm leading-relaxed text-[var(--ink-muted)]">
               TamadevLabs is an engineering studio specializing in AI, SaaS, and
-              full-stack products for founders who want to ship fast.
+              full stack products for founders who want to ship fast.
             </p>
             <Link
               href={SITE.bookingUrl}

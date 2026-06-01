@@ -13,7 +13,7 @@ export const SERVICES: Service[] = [
     title: "AI Development",
     shortDescription: "Intelligent products that automate and scale your business.",
     description:
-      "From proof-of-concept to production, we design and ship AI systems that integrate cleanly with your product and deliver measurable ROI.",
+      "From proof of concept to production, we design and ship AI systems that integrate cleanly with your product and deliver measurable ROI.",
     features: [
       "AI chatbots & assistants",
       "RAG & knowledge systems",
@@ -25,11 +25,11 @@ export const SERVICES: Service[] = [
   {
     slug: "saas-development",
     title: "SaaS Development",
-    shortDescription: "Subscription-ready platforms built for growth.",
+    shortDescription: "Subscription ready platforms built for growth.",
     description:
-      "We architect multi-tenant SaaS products with billing, auth, and analytics baked in from day one—so you can focus on customers, not infrastructure.",
+      "We architect multi tenant SaaS products with billing, auth, and analytics baked in from day one, so you can focus on customers, not infrastructure.",
     features: [
-      "Multi-tenant architecture",
+      "Multi tenant architecture",
       "Stripe billing integration",
       "Admin dashboards",
       "Analytics & reporting",
@@ -38,10 +38,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "full-stack-engineering",
-    title: "Full-Stack Engineering",
-    shortDescription: "End-to-end web applications that scale with your business.",
+    title: "Full Stack Engineering",
+    shortDescription: "End to end web applications that scale with your business.",
     description:
-      "Modern full-stack delivery across APIs, databases, and cloud infrastructure—optimized for performance, security, and maintainability.",
+      "Modern full stack delivery across APIs, databases, and cloud infrastructure, optimized for performance, security, and maintainability.",
     features: [
       "SaaS applications",
       "Custom dashboards",

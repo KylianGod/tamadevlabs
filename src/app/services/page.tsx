@@ -8,7 +8,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "AI development, SaaS engineering, full-stack applications, and team augmentation from TamadevLabs.",
+    "AI development, SaaS engineering, full stack applications, and team augmentation from TamadevLabs.",
 };
 
 export default function ServicesPage() {
@@ -17,8 +17,8 @@ export default function ServicesPage() {
       <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="Services"
-          title="End-to-end engineering for modern products"
-          description="We partner with startups to design, build, and scale AI-powered software."
+          title="End to end engineering for modern products"
+          description="We partner with startups to design, build, and scale AI powered software."
         />
       </Section>
 

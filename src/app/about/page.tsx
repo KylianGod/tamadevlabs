@@ -8,24 +8,24 @@ import { TechLogo } from "@/components/ui/TechLogo";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "TamadevLabs is an AI-first engineering studio helping startups ship scalable products faster.",
+    "TamadevLabs is an AI first engineering studio helping startups ship scalable products faster.",
 };
 
 const VALUES = [
   {
     title: "Speed without shortcuts",
     description:
-      "We ship MVPs in weeks with production-grade code—not throwaway prototypes.",
+      "We ship MVPs in weeks with production grade code, not throwaway prototypes.",
   },
   {
     title: "Technical depth",
     description:
-      "Senior engineers across AI, full-stack, and cloud who own outcomes end-to-end.",
+      "Senior engineers across AI, full stack, and cloud who own outcomes end to end.",
   },
   {
     title: "Transparent partnership",
     description:
-      "Weekly demos, clear communication, and no black-box delivery.",
+      "Weekly demos, clear communication, and no black box delivery.",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
         <PageHeader
           eyebrow="About us"
           title="Engineering built for founders"
-          description="TamadevLabs partners with startups to design, build, and scale modern software—from AI automation to full-stack SaaS."
+          description="TamadevLabs partners with startups to design, build, and scale modern software, from AI automation to full stack SaaS."
         />
       </Section>
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
             shipped real products in production.
           </p>
           <p>
-            Whether you need an AI support agent, a multi-tenant SaaS platform,
+            Whether you need an AI support agent, a multi tenant SaaS platform,
             or embedded developers in your stack, we bring clarity, velocity,
             and measurable results.
           </p>
@@ -70,7 +70,7 @@ export default function AboutPage() {
       <Section tone="blend">
         <h2 className="heading-md text-center text-[var(--cream)]">Our stack</h2>
         <p className="mx-auto mt-3 max-w-lg text-center text-on-dark-muted">
-          Modern, battle-tested technologies.
+          Modern, battle tested technologies.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           {TRUST_TECH.map((tech) => (

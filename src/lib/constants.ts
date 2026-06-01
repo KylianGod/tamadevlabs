@@ -1,6 +1,6 @@
 export const SITE = {
   name: "TamadevLabs",
-  tagline: "AI & Full-Stack Engineering",
+  tagline: "AI & Full Stack Engineering",
   description:
     "We build AI products, SaaS platforms, and modern web apps for startups ready to ship.",
   email: "hello@tamadevlabs.com",

@@ -15,13 +15,13 @@ export const STATS: Stat[] = [
   {
     value: 20,
     suffix: "+",
-    label: "Happy clients across AI, SaaS, and full-stack work",
+    label: "Happy clients across AI, SaaS, and full stack work",
     index: "02",
   },
   {
     value: 98,
     suffix: "%",
-    label: "Client satisfaction on post-project surveys",
+    label: "Client satisfaction on post project surveys",
     index: "03",
   },
   {
