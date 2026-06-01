@@ -35,7 +35,12 @@ export default function AboutPage() {
       <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="About us"
-          title="Engineering built for founders"
+          title={
+            <>
+              Engineering built for{" "}
+              <span className="text-[var(--accent)]">founders</span>
+            </>
+          }
           description="TamadevLabs partners with startups to design, build, and scale modern software, from AI automation to full stack SaaS."
         />
       </Section>
