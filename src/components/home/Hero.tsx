@@ -5,12 +5,11 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { HeroNav } from "@/components/home/HeroNav";
-import { CASE_STUDIES } from "@/lib/data/case-studies";
+import { HeroAnimation } from "@/components/home/HeroAnimation";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
-  const featured = CASE_STUDIES[0];
   const reduceMotion = useReducedMotion();
   const motionProps = (delay: number) =>
     reduceMotion
@@ -47,10 +46,10 @@ export function Hero() {
 
       <HeroNav />
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-6 pb-10 pt-28 md:px-10 md:pb-14 md:pt-32">
-        <div className="flex flex-1 flex-col justify-center">
-          <motion.div {...motionProps(0.05)} className="max-w-5xl">
-            <h1 className="text-[clamp(2.75rem,7vw,5.75rem)] font-semibold leading-[1.02] tracking-tight text-white">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-6 pb-10 pt-28 md:px-10 md:pb-14 md:pt-32">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+          <motion.div {...motionProps(0.05)} className="lg:col-span-7">
+            <h1 className="max-w-5xl text-[clamp(2.75rem,7vw,5.75rem)] font-semibold leading-[1.02] tracking-tight text-white">
               We build products
               <br />
               for the bold.
@@ -71,36 +70,14 @@ export function Hero() {
               </Link>
             </div>
           </motion.div>
-        </div>
 
-        <motion.div
-          {...motionProps(0.18)}
-          className="mt-10 flex justify-start lg:absolute lg:bottom-14 lg:right-10 lg:mt-0 lg:justify-end"
-        >
-          <Link
-            href={`/case-studies/${featured.slug}`}
-            className="group relative block w-full max-w-[17rem] overflow-hidden rounded-2xl border border-white/20 shadow-[0_24px_60px_rgba(0,0,0,0.45)] sm:max-w-[19rem]"
+          <motion.div
+            {...motionProps(0.18)}
+            className="flex justify-center lg:col-span-5 lg:justify-end"
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src={featured.image}
-                alt={featured.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="304px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/70">
-                  Featured project
-                </p>
-                <p className="mt-1 font-medium leading-snug text-white">
-                  {featured.title}
-                </p>
-              </div>
-            </div>
-          </Link>
-        </motion.div>
+            <HeroAnimation />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
