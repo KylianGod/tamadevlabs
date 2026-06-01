@@ -25,7 +25,11 @@ export default function BlogPage() {
       <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="Blog"
-          title="Engineering insights"
+          title={
+            <>
+              Engineering <span className="text-[var(--accent)]">insights</span>
+            </>
+          }
           description="Practical guides on AI, SaaS, and shipping products that scale."
         />
       </Section>
