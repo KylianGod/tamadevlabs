@@ -14,7 +14,7 @@ export function CaseStudiesPreview() {
           <p className="eyebrow mb-4">Portfolio</p>
           <h2 className="heading-md">Explore some of our work</h2>
           <p className="mt-2 font-serif text-2xl text-body-soft md:text-3xl">
-            Featured projects
+            Featured <span className="text-[var(--accent)]">projects</span>
           </p>
         </div>
         <Link href="/case-studies" className="link-underline text-[var(--ink)]">
