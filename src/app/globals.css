@@ -233,8 +233,7 @@ body {
 .services-marquee-icon {
   height: 4.5rem;
   width: auto;
-  opacity: 0.55;
-  filter: saturate(0.85);
+  opacity: 0.9;
 }
 
 @media (min-width: 768px) {
