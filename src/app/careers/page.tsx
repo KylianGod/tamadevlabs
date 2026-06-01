@@ -52,8 +52,8 @@ export default function CareersPage() {
       <Section className="pt-0">
         <div className="flex flex-wrap justify-center gap-8">
           {PERKS.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-2 text-[#6b6b6b]">
-              <Icon className="h-5 w-5 text-[#0a0a0a]" />
+            <div key={label} className="flex items-center gap-2 text-[#b8b8b8]">
+              <Icon className="h-5 w-5 text-[#f5f5f5]" />
               <span className="text-sm">{label}</span>
             </div>
           ))}
@@ -61,17 +61,17 @@ export default function CareersPage() {
       </Section>
 
       <Section className="pt-0">
-        <h2 className="font-serif text-2xl text-[#0a0a0a]">Open roles</h2>
+        <h2 className="font-serif text-2xl text-[#f5f5f5]">Open roles</h2>
         <div className="mt-8 space-y-4">
           {ROLES.map((role) => (
             <article
               key={role.title}
-              className="flex flex-col gap-4 rounded-2xl border border-[#0a0a0a]/8 bg-white p-6 md:flex-row md:items-center md:justify-between"
+              className="flex flex-col gap-4 rounded-2xl border border-[#ff5533]/20 bg-[#1a1a1a] p-6 md:flex-row md:items-center md:justify-between"
             >
               <div>
-                <h3 className="font-serif text-xl text-[#0a0a0a]">{role.title}</h3>
-                <p className="mt-1 text-sm text-[#9a9a9a]">{role.type}</p>
-                <p className="mt-2 text-sm text-[#6b6b6b]">{role.description}</p>
+                <h3 className="font-serif text-xl text-[#f5f5f5]">{role.title}</h3>
+                <p className="mt-1 text-sm text-[#b8b8b8]">{role.type}</p>
+                <p className="mt-2 text-sm text-[#b8b8b8]">{role.description}</p>
               </div>
               <Button
                 href={`mailto:${SITE.email}?subject=Application: ${encodeURIComponent(role.title)}`}
@@ -87,7 +87,7 @@ export default function CareersPage() {
 
       <Section>
         <div className="rounded-2xl border border-[#0a0a0a]/8 bg-white p-8 text-center md:p-12">
-          <h2 className="font-serif text-2xl text-[#0a0a0a] md:text-3xl">
+          <h2 className="font-serif text-2xl text-[#f5f5f5] md:text-3xl">
             Don&apos;t see your role?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-[#6b6b6b]">

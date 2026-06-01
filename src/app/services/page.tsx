@@ -35,7 +35,7 @@ export default function ServicesPage() {
                   <span className="text-sm text-[#9a9a9a]">
                     {String(i + 1).padStart(2, "0")}.
                   </span>
-                  <h2 className="mt-2 font-serif text-3xl text-[#0a0a0a]">
+                  <h2 className="mt-2 font-serif text-3xl text-[#f5f5f5]">
                     {service.title}
                   </h2>
                 </div>
@@ -45,7 +45,7 @@ export default function ServicesPage() {
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-3 text-sm text-[#0a0a0a]"
+                        className="flex items-center gap-3 text-sm text-[#f5f5f5]"
                       >
                         <span className="h-1 w-1 shrink-0 rounded-full bg-[#0a0a0a]" />
                         {feature}

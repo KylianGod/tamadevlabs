@@ -42,12 +42,12 @@ export default async function CaseStudyPage({ params }: Props) {
         />
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <h1 className="heading-lg text-[#0a0a0a]">{study.title}</h1>
+            <h1 className="heading-lg text-[#f5f5f5]">{study.title}</h1>
             <p className="mt-4 max-w-2xl text-lg text-[#6b6b6b]">{study.excerpt}</p>
             <div className="mt-8 flex flex-wrap gap-8">
               {study.metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="font-serif text-3xl text-[#0a0a0a]">{m.value}</p>
+                  <p className="font-serif text-3xl text-[#f5f5f5]">{m.value}</p>
                   <p className="text-sm text-[#9a9a9a]">{m.label}</p>
                 </div>
               ))}
@@ -70,15 +70,15 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="grid gap-12 lg:grid-cols-3">
           <div className="space-y-10 lg:col-span-2">
             <div>
-              <h2 className="font-serif text-xl text-[#0a0a0a]">The challenge</h2>
+              <h2 className="font-serif text-xl text-[#f5f5f5]">The challenge</h2>
               <p className="mt-3 leading-relaxed text-[#6b6b6b]">{study.problem}</p>
             </div>
             <div>
-              <h2 className="font-serif text-xl text-[#0a0a0a]">Our solution</h2>
+              <h2 className="font-serif text-xl text-[#f5f5f5]">Our solution</h2>
               <p className="mt-3 leading-relaxed text-[#6b6b6b]">{study.solution}</p>
             </div>
             <div>
-              <h2 className="font-serif text-xl text-[#0a0a0a]">The outcome</h2>
+              <h2 className="font-serif text-xl text-[#f5f5f5]">The outcome</h2>
               <p className="mt-3 leading-relaxed text-[#6b6b6b]">{study.outcome}</p>
             </div>
           </div>

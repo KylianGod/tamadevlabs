@@ -40,7 +40,7 @@ export default function AboutPage() {
       </Section>
 
       <Section className="pt-0">
-        <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-[#6b6b6b]">
+        <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-[#b8b8b8]">
           <p>
             We started TamadevLabs because too many agencies overpromise and
             underdeliver. Our team is built around senior engineers who have
@@ -55,15 +55,15 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <h2 className="heading-md text-center text-[#0a0a0a]">What we believe</h2>
+        <h2 className="heading-md text-center text-[#f5f5f5]">What we believe</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {VALUES.map((v) => (
             <div
               key={v.title}
-              className="rounded-2xl border border-[#0a0a0a]/8 bg-white p-6"
+              className="rounded-2xl border border-[#ff5533]/20 bg-[#1a1a1a] p-6"
             >
-              <h3 className="font-serif text-xl text-[#0a0a0a]">{v.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#6b6b6b]">
+              <h3 className="font-serif text-xl text-[#f5f5f5]">{v.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#b8b8b8]">
                 {v.description}
               </p>
             </div>
@@ -72,15 +72,15 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <h2 className="heading-md text-center text-[#0a0a0a]">Our stack</h2>
-        <p className="mx-auto mt-3 max-w-lg text-center text-[#6b6b6b]">
+        <h2 className="heading-md text-center text-[#f5f5f5]">Our stack</h2>
+        <p className="mx-auto mt-3 max-w-lg text-center text-[#b8b8b8]">
           Modern, battle-tested technologies.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           {TRUST_TECH.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-[#0a0a0a]/12 px-4 py-2 text-sm text-[#6b6b6b]"
+              className="rounded-full border border-[#ff5533]/20 px-4 py-2 text-sm text-[#b8b8b8]"
             >
               {tech}
             </span>

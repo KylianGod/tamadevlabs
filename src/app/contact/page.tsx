@@ -57,13 +57,13 @@ export default function ContactPage() {
           {CONTACT_OPTIONS.map((option) => (
             <div
               key={option.title}
-              className="rounded-2xl border border-[#0a0a0a]/8 bg-white p-6"
+              className="rounded-2xl border border-[#ff5533]/20 bg-[#1a1a1a] p-6"
             >
-              <option.icon className="h-7 w-7 text-[#0a0a0a]" />
-              <h2 className="mt-4 font-serif text-xl text-[#0a0a0a]">
+              <option.icon className="h-7 w-7 text-[#f5f5f5]" />
+              <h2 className="mt-4 font-serif text-xl text-[#f5f5f5]\">
                 {option.title}
               </h2>
-              <p className="mt-2 text-sm text-[#6b6b6b]">{option.description}</p>
+              <p className="mt-2 text-sm text-[#b8b8b8]\">{option.description}</p>
               {option.action && <div className="mt-6">{option.action}</div>}
             </div>
           ))}
@@ -72,10 +72,10 @@ export default function ContactPage() {
 
       <Section>
         <div className="mx-auto max-w-xl">
-          <h2 className="text-center font-serif text-2xl text-[#0a0a0a]">
+          <h2 className="text-center font-serif text-2xl text-[#f5f5f5]">
             Quick message
           </h2>
-          <p className="mt-2 text-center text-sm text-[#6b6b6b]">
+          <p className="mt-2 text-center text-sm text-[#b8b8b8]\">
             Fill out the form and we&apos;ll get back to you shortly.
           </p>
           <div className="mt-8">

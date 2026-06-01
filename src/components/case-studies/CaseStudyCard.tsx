@@ -12,7 +12,7 @@ export function CaseStudyCard({ study, featured = false }: CaseStudyCardProps) {
   return (
     <Link
       href={`/case-studies/${study.slug}`}
-      className={`group block overflow-hidden rounded-2xl border border-[#0a0a0a]/8 bg-white transition-shadow hover:shadow-lg ${
+      className={`group block overflow-hidden rounded-2xl border border-[#ff5533]/20 bg-[#1a1a1a] transition-shadow hover:shadow-lg ${
         featured ? "sm:col-span-2 lg:col-span-2" : ""
       }`}
     >

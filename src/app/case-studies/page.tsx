@@ -33,7 +33,7 @@ export default function CaseStudiesPage() {
 
       <Section>
         <div className="text-center">
-          <p className="text-[#6b6b6b]">Have a similar challenge?</p>
+          <p className="text-[#b8b8b8]">Have a similar challenge?</p>
           <div className="mt-4">
             <Button href={SITE.bookingUrl} external>
               Get started

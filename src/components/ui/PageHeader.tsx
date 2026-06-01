@@ -16,9 +16,9 @@ export function PageHeader({
   return (
     <div className={alignClass}>
       {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h1 className="heading-lg text-[#0a0a0a]">{title}</h1>
+      <h1 className="heading-lg text-[#f5f5f5]">{title}</h1>
       {description && (
-        <p className="mt-5 text-lg leading-relaxed text-[#6b6b6b]">{description}</p>
+        <p className="mt-5 text-lg leading-relaxed text-[#b8b8b8]">{description}</p>
       )}
     </div>
   );
