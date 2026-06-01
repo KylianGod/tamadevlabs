@@ -187,6 +187,19 @@ body {
   filter: brightness(0);
 }
 
+.services-marquee-icon {
+  height: 4.5rem;
+  width: auto;
+  opacity: 0.55;
+  filter: saturate(0.85);
+}
+
+@media (min-width: 768px) {
+  .services-marquee-icon {
+    height: 5.5rem;
+  }
+}
+
 .marquee-track {
   display: flex;
   width: max-content;

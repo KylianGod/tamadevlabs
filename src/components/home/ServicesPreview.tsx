@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
-import { Marquee } from "@/components/ui/Marquee";
+import { ServicesMarquee } from "@/components/home/ServicesMarquee";
 import { SERVICES } from "@/lib/data/services";
 
 export function ServicesPreview() {
@@ -55,7 +55,7 @@ export function ServicesPreview() {
         </div>
       </Section>
 
-      <Marquee text="SERVICES" />
+      <ServicesMarquee />
     </>
   );
 }
