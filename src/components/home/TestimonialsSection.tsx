@@ -13,7 +13,7 @@ export function TestimonialsSection() {
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <p className="eyebrow mb-4">Testimonials</p>
-          <h2 className="heading-md text-[var(--accent)]">Stories from our clients</h2>
+          <h2 className="heading-md !text-[var(--accent)]">Stories from our clients</h2>
           <p className="mt-6 text-sm text-on-dark-muted">20+ happy clients</p>
         </div>
 
