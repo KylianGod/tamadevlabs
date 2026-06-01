@@ -26,18 +26,19 @@ export function FinalCTAAnimation() {
   if (!animationData) {
     return (
       <div
-        className="mx-auto h-28 w-28 animate-pulse rounded-full bg-[var(--cream)]/10 md:h-36 md:w-36"
+        className="final-cta-animation animate-pulse bg-[var(--cream)]/10"
         aria-hidden="true"
       />
     );
   }
 
   return (
-    <div
-      className="pointer-events-none mx-auto w-full max-w-[14rem] md:max-w-[18rem]"
-      aria-hidden="true"
-    >
-      <Lottie animationData={animationData} loop className="h-auto w-full" />
+    <div className="final-cta-animation" aria-hidden="true">
+      <Lottie
+        animationData={animationData}
+        loop
+        className="final-cta-animation__lottie"
+      />
     </div>
   );
 }
