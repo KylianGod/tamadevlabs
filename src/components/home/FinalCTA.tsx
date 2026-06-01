@@ -7,7 +7,7 @@ export function FinalCTA() {
   return (
     <Section tone="cream" className="pb-28">
       <div className="rounded-2xl bg-[var(--ink)] px-8 py-16 md:px-16 md:py-20">
-        <h2 className="heading-md text-center text-[var(--accent)]">
+        <h2 className="heading-md text-center !text-[var(--accent)]">
           Ready to build something great?
         </h2>
 
