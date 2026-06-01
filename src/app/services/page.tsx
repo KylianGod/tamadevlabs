@@ -17,7 +17,12 @@ export default function ServicesPage() {
       <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="Services"
-          title="End to end engineering for modern products"
+          title={
+            <>
+              End to end engineering for{" "}
+              <span className="text-[var(--accent)]">modern</span> products
+            </>
+          }
           description="We partner with startups to design, build, and scale AI powered software."
         />
       </Section>
