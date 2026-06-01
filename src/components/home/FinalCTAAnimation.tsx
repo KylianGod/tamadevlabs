@@ -26,7 +26,7 @@ export function FinalCTAAnimation() {
   if (!animationData) {
     return (
       <div
-        className="final-cta-animation animate-pulse bg-[var(--cream)]/10"
+        className="final-cta-animation final-cta-animation--loading"
         aria-hidden="true"
       />
     );

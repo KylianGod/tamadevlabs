@@ -188,26 +188,31 @@ body {
 }
 
 .final-cta-animation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 5.5rem;
-  width: 5.5rem;
-  margin-inline: auto;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
 }
 
-.final-cta-animation__lottie {
-  height: 100%;
-  width: 100%;
+.final-cta-animation--loading {
+  background: rgba(244, 243, 238, 0.06);
 }
 
-@media (min-width: 768px) {
-  .final-cta-animation {
-    height: 7rem;
-    width: 7rem;
-  }
+.final-cta-animation__lottie {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.final-cta-animation__lottie svg {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .case-study-visual {
