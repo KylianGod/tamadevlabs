@@ -26,7 +26,7 @@ export function HeroAnimation() {
   if (!animationData) {
     return (
       <div
-        className="mx-auto aspect-square w-full max-w-[22rem] animate-pulse rounded-full bg-white/10 sm:max-w-[26rem] lg:max-w-[28rem]"
+        className="mx-auto aspect-square w-full max-w-[22rem] animate-pulse rounded-full bg-[#061425]/25 sm:max-w-[26rem] lg:max-w-[28rem]"
         aria-hidden="true"
       />
     );
@@ -34,7 +34,7 @@ export function HeroAnimation() {
 
   return (
     <div
-      className="pointer-events-none mx-auto w-full max-w-[22rem] brightness-0 invert opacity-90 sm:max-w-[26rem] lg:max-w-[28rem]"
+      className="pointer-events-none mx-auto w-full max-w-[22rem] brightness-0 opacity-85 drop-shadow-[0_8px_32px_rgba(6,20,37,0.35)] sm:max-w-[26rem] lg:max-w-[28rem]"
       aria-hidden="true"
     >
       <Lottie animationData={animationData} loop className="h-auto w-full" />

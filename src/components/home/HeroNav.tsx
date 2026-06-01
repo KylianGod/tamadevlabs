@@ -15,7 +15,7 @@ export function HeroNav() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10">
-        <Link href="/" className="flex items-center gap-3 text-white">
+        <Link href="/" className="flex items-center gap-3 text-[var(--cream)] drop-shadow-[0_1px_12px_rgba(6,20,37,0.45)]">
           <LogoMark className="h-10 w-10 md:h-11 md:w-11" />
           <span className="font-serif text-xl tracking-tight md:text-2xl">
             {SITE.name}
@@ -23,15 +23,15 @@ export function HeroNav() {
         </Link>
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
-          <ul className="flex items-center gap-1 rounded-full border border-white/15 bg-black/35 px-2 py-2 backdrop-blur-md">
+          <ul className="flex items-center gap-1 rounded-full border border-[var(--cream)]/20 bg-[#061425]/45 px-2 py-2 backdrop-blur-md">
             {HERO_NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className={`rounded-full px-4 py-2 text-sm transition-colors ${
                     pathname === link.href
-                      ? "bg-white/10 font-medium text-white"
-                      : "text-white/75 hover:text-white"
+                      ? "bg-[var(--cream)]/15 font-medium text-[var(--cream)]"
+                      : "text-[var(--cream)]/80 hover:text-[var(--cream)]"
                   }`}
                 >
                   {link.label}
@@ -46,13 +46,13 @@ export function HeroNav() {
             href={SITE.bookingUrl}
             external
             size="sm"
-            className="hidden border-white/10 bg-black/80 text-white hover:bg-black lg:inline-flex"
+            className="hidden border-[var(--cream)]/15 bg-[#061425]/85 text-[var(--cream)] hover:bg-[#061425] lg:inline-flex"
           >
             Get started
           </Button>
           <button
             type="button"
-            className="rounded-full border border-white/15 bg-black/35 p-2.5 text-white backdrop-blur-md lg:hidden"
+            className="rounded-full border border-[var(--cream)]/20 bg-[#061425]/45 p-2.5 text-[var(--cream)] backdrop-blur-md lg:hidden"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"}
           >
@@ -62,7 +62,7 @@ export function HeroNav() {
       </div>
 
       {open && (
-        <nav className="border-t border-white/10 bg-black/60 px-6 py-4 backdrop-blur-xl lg:hidden">
+        <nav className="border-t border-[var(--cream)]/15 bg-[#061425]/75 px-6 py-4 backdrop-blur-xl lg:hidden">
           <ul className="flex flex-col gap-1">
             {HERO_NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -71,8 +71,8 @@ export function HeroNav() {
                   onClick={() => setOpen(false)}
                   className={`block rounded-lg px-3 py-3 text-sm ${
                     pathname === link.href
-                      ? "font-medium text-white"
-                      : "text-white/70"
+                      ? "font-medium text-[var(--cream)]"
+                      : "text-[var(--cream)]/75"
                   }`}
                 >
                   {link.label}
@@ -83,7 +83,7 @@ export function HeroNav() {
               <Button
                 href={SITE.bookingUrl}
                 external
-                className="w-full border-white/10 bg-black text-white"
+                className="w-full border-[var(--cream)]/15 bg-[#061425] text-[var(--cream)]"
               >
                 Get started
               </Button>
