@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroNav } from "@/components/home/HeroNav";
+import { Header } from "@/components/layout/Header";
 import { HeroAnimation } from "@/components/home/HeroAnimation";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -44,7 +44,7 @@ export function Hero() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_45%,rgba(255,140,0,0.18),transparent_50%)]"
       />
 
-      <HeroNav />
+      <Header variant="hero" />
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-6 pb-10 pt-28 md:px-10 md:pb-14 md:pt-32">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
