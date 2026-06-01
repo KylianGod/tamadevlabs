@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
-import { ServicesMarquee } from "@/components/home/ServicesMarquee";
 import { SERVICES } from "@/lib/data/services";
 
 export function ServicesPreview() {
   return (
-    <>
-      <Section id="services" tone="muted">
+    <Section id="services" tone="muted">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow mb-4">Our services</p>
@@ -53,9 +51,6 @@ export function ServicesPreview() {
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
-      </Section>
-
-      <ServicesMarquee />
-    </>
+    </Section>
   );
 }

@@ -232,18 +232,6 @@ body {
   }
 }
 
-.services-marquee-icon {
-  height: 4.5rem;
-  width: auto;
-  opacity: 0.9;
-}
-
-@media (min-width: 768px) {
-  .services-marquee-icon {
-    height: 5.5rem;
-  }
-}
-
 .marquee-track {
   display: flex;
   width: max-content;
