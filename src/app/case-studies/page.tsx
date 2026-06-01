@@ -37,8 +37,10 @@ export default function CaseStudiesPage() {
 
       <Section tone="ink">
         <div className="text-center">
-          <p className="text-on-dark-muted">Have a similar challenge?</p>
-          <div className="mt-4">
+          <h2 className="heading-md text-center !text-[var(--accent)]">
+            Have a similar challenge?
+          </h2>
+          <div className="mt-8">
             <Button href={SITE.bookingUrl} external variant="dark">
               Get started
             </Button>
