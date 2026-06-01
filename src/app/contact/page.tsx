@@ -47,7 +47,12 @@ export default function ContactPage() {
       <Section tone="cream" className="pt-16 md:pt-24">
         <PageHeader
           eyebrow="Contact"
-          title="Let's talk about your project"
+          title={
+            <>
+              Let&apos;s talk about your{" "}
+              <span className="text-[var(--accent)]">project</span>
+            </>
+          }
           description="Whether you're a founder with an idea or a developer looking to join our team, we'd love to hear from you."
         />
       </Section>
