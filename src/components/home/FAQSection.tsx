@@ -13,7 +13,10 @@ export function FAQSection() {
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <p className="eyebrow mb-4">FAQs</p>
-          <h2 className="heading-md">Got a question? We&apos;ve got the answer.</h2>
+          <h2 className="heading-md">
+            <span className="text-[var(--accent)]">Got a question?</span> We&apos;ve
+            got the answer.
+          </h2>
         </div>
 
         <div className="divide-y divide-[var(--border-ink)] border-y border-[var(--border-ink)] lg:col-span-8">
