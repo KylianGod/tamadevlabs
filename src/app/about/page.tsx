@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { TRUST_TECH, SITE } from "@/lib/constants";
+import { TechLogo } from "@/components/ui/TechLogo";
 
 export const metadata: Metadata = {
   title: "About",
@@ -71,13 +72,13 @@ export default function AboutPage() {
         <p className="mx-auto mt-3 max-w-lg text-center text-on-dark-muted">
           Modern, battle-tested technologies.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           {TRUST_TECH.map((tech) => (
             <span
-              key={tech}
-              className="rounded-full border border-[var(--border-cream)] px-4 py-2 text-sm text-[var(--cream)]"
+              key={tech.id}
+              className="flex items-center justify-center rounded-full border border-[var(--border-cream)] px-6 py-3"
             >
-              {tech}
+              <TechLogo tech={tech} variant="on-dark" size="sm" />
             </span>
           ))}
         </div>

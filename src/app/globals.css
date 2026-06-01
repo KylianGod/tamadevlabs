@@ -177,6 +177,16 @@ body {
   opacity: 0.7;
 }
 
+.tech-logo-on-dark {
+  opacity: 0.72;
+  filter: brightness(0) invert(1);
+}
+
+.tech-logo-on-light {
+  opacity: 0.85;
+  filter: brightness(0);
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
