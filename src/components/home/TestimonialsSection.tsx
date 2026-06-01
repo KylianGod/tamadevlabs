@@ -38,13 +38,13 @@ export function TestimonialsSection() {
                 key={t.author}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`rounded-full border px-4 py-2 text-xs uppercase tracking-wider transition-colors ${
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                   active === i
                     ? "border-[var(--cream)] bg-[var(--cream)] text-[var(--ink)]"
                     : "border-[var(--border-cream)] text-on-dark-muted hover:border-[var(--cream)]/40"
                 }`}
               >
-                [{String(i + 1).padStart(2, "0")}]
+                {t.author.split(" ")[0]}
               </button>
             ))}
           </div>
