@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
@@ -13,6 +14,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       {!isHome && <Header />}
       <main className={`flex-1 ${isHome ? "" : "page-inner"}`}>{children}</main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
