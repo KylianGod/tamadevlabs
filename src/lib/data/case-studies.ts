@@ -104,9 +104,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "ROI timeline", value: "6 weeks" },
     ],
     tags: ["AI", "Automation"],
-    image: "/case-studies/internal-ai-automation.svg",
-    coverImage:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=85",
+    image: "/case-studies/internal-ai-automation-cover.png",
+    coverImage: "/case-studies/internal-ai-automation-cover.png",
+    coverShowcaseTint: false,
   },
 ];
 
