@@ -216,12 +216,22 @@ body {
   text-transform: uppercase;
   line-height: 1;
   cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition:
-    opacity 0.2s ease,
+    opacity 0.25s ease,
+    visibility 0.25s ease,
     transform 0.2s ease;
 }
 
-.back-to-top:hover {
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.back-to-top--visible:hover {
   opacity: 0.72;
   transform: translateY(-2px);
 }
