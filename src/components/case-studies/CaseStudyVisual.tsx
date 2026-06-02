@@ -7,6 +7,7 @@ type CaseStudyVisualProps = {
   alt: string;
   featured?: boolean;
   variant?: "card" | "hero" | "showcase";
+  showcaseTint?: boolean;
   priority?: boolean;
   sizes?: string;
 };
@@ -16,21 +17,24 @@ export function CaseStudyVisual({
   alt,
   featured = false,
   variant = "card",
+  showcaseTint = true,
   priority = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
 }: CaseStudyVisualProps) {
   if (variant === "showcase") {
     return (
-      <div className="case-study-showcase">
+      <div
+        className={`case-study-showcase ${showcaseTint ? "" : "case-study-showcase--no-tint"}`}
+      >
         <Image
           src={src}
           alt={alt}
           fill
-          className="case-study-showcase__image"
+          className={`case-study-showcase__image ${showcaseTint ? "" : "case-study-showcase__image--natural"}`}
           sizes={sizes}
           priority={priority}
         />
-        <div className="case-study-showcase__tint" aria-hidden="true" />
+        {showcaseTint && <div className="case-study-showcase__tint" aria-hidden="true" />}
         <div className="case-study-showcase__glass" aria-hidden="true">
           <span className="case-study-showcase__glass-btn">
             <Plus className="h-7 w-7 text-white md:h-8 md:w-8" strokeWidth={1.75} />

@@ -11,6 +11,8 @@ export type CaseStudy = {
   metrics: { label: string; value: string }[];
   image: string;
   coverImage: string;
+  /** When false, showcase cards use the photo as-is without orange tint or accent backdrop. */
+  coverShowcaseTint?: boolean;
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -35,6 +37,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["AI", "SaaS"],
     image: "/case-studies/ai-customer-support-cover.png",
     coverImage: "/case-studies/ai-customer-support-cover.png",
+    coverShowcaseTint: false,
   },
   {
     slug: "ecommerce-saas",

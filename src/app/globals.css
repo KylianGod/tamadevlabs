@@ -222,10 +222,18 @@ body {
   background: var(--accent);
 }
 
+.case-study-showcase--no-tint {
+  background: var(--ink);
+}
+
 .case-study-showcase__image {
   object-fit: cover;
   object-position: center 20%;
   transition: transform 0.5s ease;
+}
+
+.case-study-showcase__image--natural {
+  object-position: center center;
 }
 
 .group:hover .case-study-showcase__image {
