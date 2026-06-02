@@ -28,9 +28,9 @@ export default function CaseStudiesPage() {
       </Section>
 
       <Section tone="muted" className="pt-0">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CASE_STUDIES.map((study) => (
-            <CaseStudyCard key={study.slug} study={study} />
+            <CaseStudyCard key={study.slug} study={study} showcase />
           ))}
         </div>
       </Section>
