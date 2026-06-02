@@ -36,12 +36,12 @@ export default function CaseStudiesPage() {
       </Section>
 
       <Section tone="ink">
-        <div className="text-center">
-          <h2 className="heading-md text-center !text-[var(--accent)]">
+        <div className="surface-ink-panel">
+          <h2 className="font-serif text-2xl !text-[var(--accent)] md:text-3xl">
             Have a similar challenge?
           </h2>
-          <div className="mt-8">
-            <Button href={SITE.bookingUrl} external variant="dark">
+          <div className="mt-6">
+            <Button href={SITE.bookingUrl} external variant="dark" size="lg">
               Get started
             </Button>
           </div>

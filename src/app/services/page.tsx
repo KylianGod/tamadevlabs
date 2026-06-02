@@ -65,7 +65,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section tone="ink">
-        <div className="rounded-2xl border border-[var(--border-cream)] bg-[var(--surface-dark-muted)] px-8 py-12 text-center md:px-12">
+        <div className="surface-ink-panel">
           <h2 className="font-serif text-2xl !text-[var(--accent)] md:text-3xl">
             Not sure where to start?
           </h2>
