@@ -81,9 +81,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Page load", value: "under 1.2s" },
     ],
     tags: ["Healthcare", "Dashboard"],
-    image: "/case-studies/healthcare-dashboard.svg",
-    coverImage:
-      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1600&q=85",
+    image: "/case-studies/healthcare-dashboard-cover.png",
+    coverImage: "/case-studies/healthcare-dashboard-cover.png",
+    coverShowcaseTint: false,
   },
   {
     slug: "internal-ai-automation",
