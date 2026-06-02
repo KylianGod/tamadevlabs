@@ -110,6 +110,19 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
+/** Homepage featured projects (eCommerce omitted; full list on /case-studies). */
+export const HOME_FEATURED_CASE_STUDY_SLUGS = [
+  "ai-customer-support",
+  "internal-ai-automation",
+  "healthcare-dashboard",
+] as const;
+
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);
+}
+
+export function getHomeFeaturedCaseStudies(): CaseStudy[] {
+  return HOME_FEATURED_CASE_STUDY_SLUGS.map((slug) =>
+    CASE_STUDIES.find((study) => study.slug === slug),
+  ).filter((study): study is CaseStudy => study !== undefined);
 }

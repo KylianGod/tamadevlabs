@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CaseStudyCard } from "@/components/case-studies/CaseStudyCard";
 import { Section } from "@/components/ui/Section";
-import { CASE_STUDIES } from "@/lib/data/case-studies";
+import { getHomeFeaturedCaseStudies } from "@/lib/data/case-studies";
 
 export function CaseStudiesPreview() {
-  const featured = CASE_STUDIES.slice(0, 5);
+  const featured = getHomeFeaturedCaseStudies();
 
   return (
-    <Section id="case-studies" tone="cream">
+    <Section id="case-studies" tone="cream" className="!py-14 md:!py-20">
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="eyebrow mb-4">Portfolio</p>
@@ -23,7 +23,7 @@ export function CaseStudiesPreview() {
         </Link>
       </div>
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((study) => (
           <CaseStudyCard key={study.slug} study={study} showcase />
         ))}
