@@ -187,6 +187,69 @@ body {
   filter: brightness(0);
 }
 
+.case-study-showcase {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--accent);
+}
+
+.case-study-showcase__image {
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.5s ease;
+}
+
+.group:hover .case-study-showcase__image {
+  transform: scale(1.04);
+}
+
+.case-study-showcase__tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 85, 51, 0.12) 0%,
+    rgba(255, 85, 51, 0.42) 100%
+  );
+  pointer-events: none;
+}
+
+.case-study-showcase__glass {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.case-study-showcase__glass-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.75rem;
+  width: 3.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(14px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.group:hover .case-study-showcase__glass-btn {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+  .case-study-showcase__glass-btn {
+    height: 4.25rem;
+    width: 4.25rem;
+  }
+}
+
 .case-study-visual {
   display: flex;
   align-items: center;

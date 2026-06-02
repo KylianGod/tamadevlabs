@@ -10,6 +10,7 @@ export type CaseStudy = {
   stack: string[];
   metrics: { label: string; value: string }[];
   image: string;
+  coverImage: string;
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -33,6 +34,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     tags: ["AI", "SaaS"],
     image: "/case-studies/ai-customer-support.svg",
+    coverImage:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=85",
   },
   {
     slug: "ecommerce-saas",
@@ -54,6 +57,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     tags: ["SaaS", "Ecommerce"],
     image: "/case-studies/ecommerce-saas.svg",
+    coverImage:
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=85",
   },
   {
     slug: "healthcare-dashboard",
@@ -75,6 +80,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     tags: ["Healthcare", "Dashboard"],
     image: "/case-studies/healthcare-dashboard.svg",
+    coverImage:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1600&q=85",
   },
   {
     slug: "internal-ai-automation",
@@ -96,6 +103,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     tags: ["AI", "Automation"],
     image: "/case-studies/internal-ai-automation.svg",
+    coverImage:
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=85",
   },
 ];
 
