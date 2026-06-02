@@ -33,9 +33,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "CSAT improvement", value: "+24%" },
     ],
     tags: ["AI", "SaaS"],
-    image: "/case-studies/ai-customer-support.svg",
-    coverImage:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=85",
+    image: "/case-studies/ai-customer-support-cover.png",
+    coverImage: "/case-studies/ai-customer-support-cover.png",
   },
   {
     slug: "ecommerce-saas",
