@@ -90,7 +90,7 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="ink">
-        <div className="text-center">
+        <div className="surface-ink-panel">
           <Button
             href={SITE.bookingUrl}
             external
