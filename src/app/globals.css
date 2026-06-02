@@ -187,6 +187,34 @@ body {
   filter: brightness(0);
 }
 
+.final-cta-animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.final-cta-animation--loading {
+  background: rgba(244, 243, 238, 0.04);
+}
+
+.final-cta-animation__lottie {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: min(100%, 28rem);
+  width: min(100%, 28rem);
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .final-cta-animation__lottie {
+    height: min(100%, 36rem);
+    width: min(100%, 36rem);
+  }
+}
+
 .case-study-showcase {
   position: relative;
   aspect-ratio: 4 / 3;
