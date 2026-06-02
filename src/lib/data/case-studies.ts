@@ -81,7 +81,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["Healthcare", "Dashboard"],
     image: "/case-studies/healthcare-dashboard.svg",
     coverImage:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1600&q=85",
   },
   {
     slug: "internal-ai-automation",
