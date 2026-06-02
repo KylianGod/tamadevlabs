@@ -33,6 +33,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   const showcaseHero =
     slug === "ai-customer-support" ||
+    slug === "ecommerce-saas" ||
     slug === "healthcare-dashboard" ||
     slug === "internal-ai-automation";
 

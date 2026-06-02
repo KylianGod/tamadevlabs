@@ -60,6 +60,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["SaaS", "Ecommerce"],
     image: "/case-studies/ecommerce-saas-cover.png",
     coverImage: "/case-studies/ecommerce-saas-cover.png",
+    coverShowcaseTint: true,
   },
   {
     slug: "healthcare-dashboard",
