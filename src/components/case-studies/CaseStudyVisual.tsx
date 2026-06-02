@@ -22,24 +22,28 @@ export function CaseStudyVisual({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
 }: CaseStudyVisualProps) {
   if (variant === "showcase" || variant === "hero-showcase") {
+    const tinted = showcaseTint !== false;
+
     return (
       <div
-        className={`case-study-showcase ${variant === "hero-showcase" ? "case-study-showcase--hero" : ""} ${showcaseTint ? "" : "case-study-showcase--no-tint"}`}
+        className={`case-study-showcase ${variant === "hero-showcase" ? "case-study-showcase--hero" : ""} ${tinted ? "" : "case-study-showcase--no-tint"}`}
       >
         <Image
           src={src}
           alt={alt}
           fill
-          className={`case-study-showcase__image ${showcaseTint ? "" : "case-study-showcase__image--natural"}`}
+          className={`case-study-showcase__image ${tinted ? "" : "case-study-showcase__image--natural"}`}
           sizes={sizes}
           priority={priority}
         />
-        {showcaseTint && <div className="case-study-showcase__tint" aria-hidden="true" />}
-        <div className="case-study-showcase__glass" aria-hidden="true">
-          <span className="case-study-showcase__glass-btn">
-            <Plus className="h-7 w-7 text-white md:h-8 md:w-8" strokeWidth={1.75} />
-          </span>
-        </div>
+        {tinted && <div className="case-study-showcase__tint" aria-hidden="true" />}
+        {tinted && (
+          <div className="case-study-showcase__glass" aria-hidden="true">
+            <span className="case-study-showcase__glass-btn">
+              <Plus className="case-study-showcase__plus" strokeWidth={1.75} aria-hidden="true" />
+            </span>
+          </div>
+        )}
       </div>
     );
   }

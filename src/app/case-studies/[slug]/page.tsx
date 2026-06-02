@@ -31,11 +31,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = getCaseStudyBySlug(slug);
   if (!study) notFound();
 
-  const showcaseHero =
-    slug === "ai-customer-support" ||
-    slug === "ecommerce-saas" ||
-    slug === "healthcare-dashboard" ||
-    slug === "internal-ai-automation";
+  const showcaseHero = study.coverShowcaseTint !== false;
 
   return (
     <>
