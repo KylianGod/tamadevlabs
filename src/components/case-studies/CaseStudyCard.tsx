@@ -28,7 +28,7 @@ export function CaseStudyCard({
         alt={study.title}
         featured={featured}
         variant={showcase ? "showcase" : "card"}
-        showcaseTint={study.coverShowcaseTint !== false}
+        showcaseTint={study.coverShowcaseTint ?? true}
         sizes={
           showcase
             ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

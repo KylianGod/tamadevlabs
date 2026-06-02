@@ -31,6 +31,9 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = getCaseStudyBySlug(slug);
   if (!study) notFound();
 
+  const showcaseHero =
+    slug === "healthcare-dashboard" || slug === "internal-ai-automation";
+
   return (
     <>
       <Section tone="cream" className="pt-16 md:pt-24">
@@ -55,9 +58,10 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
           <div className="overflow-hidden rounded-2xl lg:col-span-5">
             <CaseStudyVisual
-              src={study.image}
+              src={study.coverImage}
               alt={study.title}
-              variant="hero"
+              variant={showcaseHero ? "hero-showcase" : "hero"}
+              showcaseTint={showcaseHero ? true : undefined}
               priority
               sizes="(max-width: 1024px) 100vw, 500px"
             />

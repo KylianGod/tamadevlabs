@@ -222,6 +222,10 @@ body {
   background: var(--accent);
 }
 
+.case-study-showcase--hero {
+  aspect-ratio: 16 / 10;
+}
+
 .case-study-showcase--no-tint {
   background: var(--ink);
 }

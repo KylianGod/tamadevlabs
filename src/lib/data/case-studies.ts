@@ -81,7 +81,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["Healthcare", "Dashboard"],
     image: "/case-studies/healthcare-dashboard-cover.png",
     coverImage: "/case-studies/healthcare-dashboard-cover.png",
-    coverShowcaseTint: false,
+    coverShowcaseTint: true,
   },
   {
     slug: "internal-ai-automation",
@@ -104,7 +104,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["AI", "Automation"],
     image: "/case-studies/internal-ai-automation-cover.png",
     coverImage: "/case-studies/internal-ai-automation-cover.png",
-    coverShowcaseTint: false,
+    coverShowcaseTint: true,
   },
 ];
 

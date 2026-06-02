@@ -6,7 +6,7 @@ type CaseStudyVisualProps = {
   src: string;
   alt: string;
   featured?: boolean;
-  variant?: "card" | "hero" | "showcase";
+  variant?: "card" | "hero" | "showcase" | "hero-showcase";
   showcaseTint?: boolean;
   priority?: boolean;
   sizes?: string;
@@ -21,10 +21,10 @@ export function CaseStudyVisual({
   priority = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
 }: CaseStudyVisualProps) {
-  if (variant === "showcase") {
+  if (variant === "showcase" || variant === "hero-showcase") {
     return (
       <div
-        className={`case-study-showcase ${showcaseTint ? "" : "case-study-showcase--no-tint"}`}
+        className={`case-study-showcase ${variant === "hero-showcase" ? "case-study-showcase--hero" : ""} ${showcaseTint ? "" : "case-study-showcase--no-tint"}`}
       >
         <Image
           src={src}
