@@ -59,11 +59,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-[var(--border-ink)] pt-8 text-sm text-[var(--ink-soft)] sm:flex-row sm:items-center">
+        <div className="mt-16 border-t border-[var(--border-ink)] pt-8 text-sm text-[var(--ink-soft)]">
           <p>
             © {year} {SITE.name}. All rights reserved.
           </p>
-          <p>{SITE.tagline}</p>
         </div>
       </div>
     </footer>
