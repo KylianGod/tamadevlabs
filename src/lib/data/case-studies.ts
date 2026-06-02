@@ -58,9 +58,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Uptime", value: "99.9%" },
     ],
     tags: ["SaaS", "Ecommerce"],
-    image: "/case-studies/ecommerce-saas.svg",
-    coverImage:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=85",
+    image: "/case-studies/ecommerce-saas-cover.png",
+    coverImage: "/case-studies/ecommerce-saas-cover.png",
+    coverShowcaseTint: false,
   },
   {
     slug: "healthcare-dashboard",

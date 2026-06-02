@@ -12,7 +12,7 @@ export function FinalCTA() {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(6,20,37,0.5)_0%,rgba(6,20,37,0.82)_68%)]"
+          className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(6,20,37,0.35)_0%,rgba(6,20,37,0.72)_72%)]"
         />
 
         <div className="relative z-10">
