@@ -32,7 +32,9 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!study) notFound();
 
   const showcaseHero =
-    slug === "healthcare-dashboard" || slug === "internal-ai-automation";
+    slug === "ai-customer-support" ||
+    slug === "healthcare-dashboard" ||
+    slug === "internal-ai-automation";
 
   return (
     <>

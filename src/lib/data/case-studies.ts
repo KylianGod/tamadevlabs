@@ -37,6 +37,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["AI", "SaaS"],
     image: "/case-studies/ai-customer-support-cover.png",
     coverImage: "/case-studies/ai-customer-support-cover.png",
+    coverShowcaseTint: true,
   },
   {
     slug: "ecommerce-saas",
