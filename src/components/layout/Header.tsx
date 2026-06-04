@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { LogoMark } from "@/components/ui/LogoMark";
+import { useSiteSettings } from "@/components/providers/SiteSettingsProvider";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 
 type HeaderProps = {
@@ -15,6 +16,7 @@ type HeaderProps = {
 export function Header({ variant = "inner" }: HeaderProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { bookingUrl } = useSiteSettings();
   const isHero = variant === "hero";
 
   const headerClass = isHero
@@ -94,7 +96,7 @@ export function Header({ variant = "inner" }: HeaderProps) {
 
         <div className="flex items-center gap-3">
           <Button
-            href={SITE.bookingUrl}
+            href={bookingUrl}
             external
             size="sm"
             className={`${ctaClass ?? ""} hidden lg:inline-flex`}
@@ -128,7 +130,7 @@ export function Header({ variant = "inner" }: HeaderProps) {
             ))}
             <li className="pt-2">
               <Button
-                href={SITE.bookingUrl}
+                href={bookingUrl}
                 external
                 className={mobileCtaClass}
               >

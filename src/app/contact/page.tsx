@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { SITE } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -12,36 +12,38 @@ export const metadata: Metadata = {
     "Get in touch with TamadevLabs for AI development, SaaS engineering, or careers.",
 };
 
-const CONTACT_OPTIONS = [
-  {
-    icon: Calendar,
-    title: "Book a discovery call",
-    description: "Best for project inquiries. Pick a time that works for you.",
-    action: (
-      <Button href={SITE.bookingUrl} external>
-        Book on Cal.com
-      </Button>
-    ),
-  },
-  {
-    icon: Mail,
-    title: "Email us",
-    description: "For general questions, partnerships, or async communication.",
-    action: (
-      <Button href={`mailto:${SITE.email}`} variant="secondary">
-        {SITE.email}
-      </Button>
-    ),
-  },
-  {
-    icon: MessageSquare,
-    title: "Send a message",
-    description: "Tell us about your project. We respond within 1 business day.",
-    action: null,
-  },
-];
+export default async function ContactPage() {
+  const contact = await getContactInfo();
 
-export default function ContactPage() {
+  const contactOptions = [
+    {
+      icon: Calendar,
+      title: "Book a discovery call",
+      description: "Best for project inquiries. Pick a time that works for you.",
+      action: (
+        <Button href={contact.bookingUrl} external>
+          Book on Cal.com
+        </Button>
+      ),
+    },
+    {
+      icon: Mail,
+      title: "Email us",
+      description: "For general questions, partnerships, or async communication.",
+      action: (
+        <Button href={`mailto:${contact.email}`} variant="secondary">
+          {contact.email}
+        </Button>
+      ),
+    },
+    {
+      icon: MessageSquare,
+      title: "Send a message",
+      description: "Tell us about your project. We respond within 1 business day.",
+      action: null,
+    },
+  ];
+
   return (
     <>
       <Section tone="cream" className="pt-16 md:pt-24">
@@ -59,7 +61,7 @@ export default function ContactPage() {
 
       <Section tone="muted" className="pt-0">
         <div className="grid gap-6 lg:grid-cols-3">
-          {CONTACT_OPTIONS.map((option) => (
+          {contactOptions.map((option) => (
             <div key={option.title} className="surface-card rounded-2xl p-6">
               <option.icon className="h-7 w-7 text-[var(--ink)]" />
               <h2 className="mt-4 font-serif text-xl text-[var(--ink)]">{option.title}</h2>

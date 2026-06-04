@@ -3,7 +3,8 @@ import { MapPin, Clock, Laptop } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/lib/constants";
+import { Pagination } from "@/components/ui/Pagination";
+import { getPublishedRoles } from "@/lib/data/roles";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -11,26 +12,7 @@ export const metadata: Metadata = {
     "Join TamadevLabs as a remote developer. Work on AI and full stack projects with global clients.",
 };
 
-const ROLES = [
-  {
-    title: "Senior Full Stack Engineer",
-    type: "Full time · Remote",
-    description:
-      "Build Next.js and Node.js applications end to end. 5+ years experience, strong TypeScript, and SaaS delivery background.",
-  },
-  {
-    title: "AI / ML Engineer",
-    type: "Full time · Remote",
-    description:
-      "Design RAG systems, agents, and LLM integrations. Experience with OpenAI, LangChain, and production AI deployments.",
-  },
-  {
-    title: "Frontend Engineer",
-    type: "Contract · Remote",
-    description:
-      "Craft polished React interfaces and design systems. Strong eye for UX and performance on modern web apps.",
-  },
-];
+const ROLES_PER_PAGE = 5;
 
 const PERKS = [
   { icon: Laptop, label: "Fully remote" },
@@ -38,24 +20,37 @@ const PERKS = [
   { icon: MapPin, label: "Global team" },
 ];
 
-export default function CareersPage() {
+type PageProps = {
+  searchParams: Promise<{ page?: string }>;
+};
+
+export default async function CareersPage({ searchParams }: PageProps) {
+  const { page: pageParam } = await searchParams;
+  const roles = await getPublishedRoles();
+
+  const totalPages = Math.max(1, Math.ceil(roles.length / ROLES_PER_PAGE));
+  const requestedPage = Math.max(1, Number.parseInt(pageParam ?? "1", 10) || 1);
+  const currentPage = Math.min(requestedPage, totalPages);
+  const start = (currentPage - 1) * ROLES_PER_PAGE;
+  const paginatedRoles = roles.slice(start, start + ROLES_PER_PAGE);
+
   return (
     <>
-      <Section tone="cream" className="pt-16 md:pt-24">
-        <PageHeader
-          eyebrow="Careers"
-          title={
-            <>
-              Build with us from{" "}
-              <span className="text-[var(--accent)]">anywhere</span>
-            </>
-          }
-          description="We're a distributed team of senior engineers shipping AI and full stack products for clients worldwide."
-        />
-      </Section>
+      <Section tone="cream" className="!py-0 pt-12 md:pt-16 pb-10 md:pb-14">
+        <div className="mt-5 [&_.eyebrow]:mb-2 [&_p.text-lg]:mt-3 [&_p.text-lg]:text-base">
+          <PageHeader
+            eyebrow="Careers"
+            title={
+              <>
+                Build with us from{" "}
+                <span className="text-[var(--accent)]">anywhere</span>
+              </>
+            }
+            description="We're a distributed team of senior engineers shipping AI and full stack products for clients worldwide."
+          />
+        </div>
 
-      <Section tone="muted" className="pt-0">
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="mt-5 flex flex-wrap justify-center gap-6 md:gap-8">
           {PERKS.map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center gap-2 text-body">
               <Icon className="h-5 w-5 text-[var(--ink)]" />
@@ -63,23 +58,25 @@ export default function CareersPage() {
             </div>
           ))}
         </div>
-      </Section>
 
-      <Section tone="cream" className="pt-0">
-        <h2 className="font-serif text-2xl text-[var(--ink)]">Open roles</h2>
-        <div className="mt-8 space-y-4">
-          {ROLES.map((role) => (
+        <h2 className="mt-8 font-serif text-2xl text-[var(--ink)]">
+          Open roles
+        </h2>
+        <div className="mt-5 space-y-4">
+          {paginatedRoles.map((role) => (
             <article
-              key={role.title}
+              key={role.id}
               className="surface-card flex flex-col gap-4 rounded-2xl p-6 md:flex-row md:items-center md:justify-between"
             >
               <div>
-                <h3 className="font-serif text-xl text-[var(--ink)]">{role.title}</h3>
+                <h3 className="font-serif text-xl text-[var(--ink)]">
+                  {role.title}
+                </h3>
                 <p className="mt-1 text-sm text-body-soft">{role.type}</p>
                 <p className="mt-2 text-sm text-body">{role.description}</p>
               </div>
               <Button
-                href={`mailto:${SITE.email}?subject=Application: ${encodeURIComponent(role.title)}`}
+                href={`/careers/${role.id}/apply`}
                 variant="secondary"
                 className="shrink-0"
               >
@@ -88,23 +85,26 @@ export default function CareersPage() {
             </article>
           ))}
         </div>
+        <div className="mb-5">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            basePath="/careers"
+          />
+        </div>
       </Section>
 
-      <Section tone="blend">
-        <div className="surface-card-dark rounded-2xl p-8 text-center md:p-12">
+      <Section tone="blend" className="!py-0 py-12 md:py-16">
+        <div className="surface-card-dark rounded-2xl p-8 text-center md:p-12 mb-3">
           <h2 className="font-serif text-2xl text-[var(--cream)] md:text-3xl">
             Don&apos;t see your role?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-on-dark-muted">
-            Send your portfolio and tell us what you&apos;re great at. We&apos;re always
-            open to exceptional talent.
+            Send your portfolio and tell us what you&apos;re great at.
+            We&apos;re always open to exceptional talent.
           </p>
           <div className="mt-6">
-            <Button
-              href={`mailto:${SITE.email}?subject=General Application`}
-              variant="dark"
-              size="lg"
-            >
+            <Button href="/careers/apply" variant="dark" size="lg">
               Send application
             </Button>
           </div>

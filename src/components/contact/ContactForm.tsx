@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/lib/constants";
+import { useSiteSettings } from "@/components/providers/SiteSettingsProvider";
 
 export function ContactForm() {
+  const { email } = useSiteSettings();
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -18,7 +19,7 @@ export function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\n${message}`,
     );
-    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
 
@@ -29,8 +30,8 @@ export function ContactForm() {
     return (
       <p className="surface-card rounded-2xl p-6 text-center text-sm text-body">
         Your email client should open shortly. If it doesn&apos;t, email us at{" "}
-        <a href={`mailto:${SITE.email}`} className="font-medium text-[var(--ink)] underline">
-          {SITE.email}
+        <a href={`mailto:${email}`} className="font-medium text-[var(--ink)] underline">
+          {email}
         </a>
         .
       </p>

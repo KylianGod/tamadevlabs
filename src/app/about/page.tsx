@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
-import { TRUST_TECH, SITE } from "@/lib/constants";
+import { TRUST_TECH } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 import { TechLogo } from "@/components/ui/TechLogo";
 
 export const metadata: Metadata = {
@@ -29,7 +30,9 @@ const VALUES = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const contact = await getContactInfo();
+
   return (
     <>
       <Section tone="cream" className="pt-16 md:pt-24">
@@ -92,7 +95,7 @@ export default function AboutPage() {
       <Section tone="ink">
         <div className="surface-ink-panel">
           <Button
-            href={SITE.bookingUrl}
+            href={contact.bookingUrl}
             external
             variant="dark"
             size="lg"

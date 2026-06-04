@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { SiteSettingsProvider } from "@/components/providers/SiteSettingsProvider";
 import { SITE } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -23,18 +25,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const contact = await getContactInfo();
+
   return (
     <html
       lang="en"
       className={`${poppins.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-[var(--cream)] text-[var(--ink)]">
-        <SiteShell>{children}</SiteShell>
+        <SiteSettingsProvider contact={contact}>
+          <SiteShell>{children}</SiteShell>
+        </SiteSettingsProvider>
       </body>
     </html>
   );

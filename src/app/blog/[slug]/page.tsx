@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/Button";
 import { BLOG_POSTS } from "@/lib/data/blog";
-import { SITE } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,6 +27,8 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
+
+  const contact = await getContactInfo();
 
   return (
     <>
@@ -57,7 +59,7 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
         </div>
         <div className="mt-12 text-center">
-          <Button href={SITE.bookingUrl} external>
+          <Button href={contact.bookingUrl} external>
             Get started
           </Button>
         </div>

@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { CASE_STUDIES } from "@/lib/data/case-studies";
-import { SITE } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     "See how TamadevLabs delivers AI, SaaS, and full stack solutions with measurable outcomes.",
 };
 
-export default function CaseStudiesPage() {
+export default async function CaseStudiesPage() {
+  const contact = await getContactInfo();
+
   return (
     <>
       <Section tone="cream" className="pt-16 md:pt-24">
@@ -41,7 +43,7 @@ export default function CaseStudiesPage() {
             Have a similar challenge?
           </h2>
           <div className="mt-6">
-            <Button href={SITE.bookingUrl} external variant="dark" size="lg">
+            <Button href={contact.bookingUrl} external variant="dark" size="lg">
               Get started
             </Button>
           </div>

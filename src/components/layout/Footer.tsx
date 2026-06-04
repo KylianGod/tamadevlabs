@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useSiteSettings } from "@/components/providers/SiteSettingsProvider";
 import { LogoMark } from "@/components/ui/LogoMark";
 import { FOOTER_LINKS, SITE } from "@/lib/constants";
 
 export function Footer() {
+  const { email, bookingUrl } = useSiteSettings();
   const year = new Date().getFullYear();
 
   return (
@@ -19,10 +23,10 @@ export function Footer() {
               {SITE.description}
             </p>
             <a
-              href={`mailto:${SITE.email}`}
+              href={`mailto:${email}`}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--ink)] transition-opacity hover:opacity-60"
             >
-              {SITE.email}
+              {email}
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
@@ -50,7 +54,7 @@ export function Footer() {
               full stack products for founders who want to ship fast.
             </p>
             <Link
-              href={SITE.bookingUrl}
+              href={bookingUrl}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--ink)] transition-opacity hover:opacity-60"
             >
               Book a discovery call

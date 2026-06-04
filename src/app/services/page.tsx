@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/data/services";
-import { SITE } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     "AI development, SaaS engineering, full stack applications, and team augmentation from TamadevLabs.",
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const contact = await getContactInfo();
+
   return (
     <>
       <Section tone="cream" className="pt-16 md:pt-24">
@@ -73,7 +75,7 @@ export default function ServicesPage() {
             Tell us about your product and we&apos;ll recommend the right approach.
           </p>
           <div className="mt-6">
-            <Button href={SITE.bookingUrl} external variant="dark" size="lg">
+            <Button href={contact.bookingUrl} external variant="dark" size="lg">
               Book a discovery call
             </Button>
           </div>

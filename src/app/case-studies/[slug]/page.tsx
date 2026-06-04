@@ -8,7 +8,7 @@ import {
   CASE_STUDIES,
   getCaseStudyBySlug,
 } from "@/lib/data/case-studies";
-import { SITE } from "@/lib/constants";
+import { getContactInfo } from "@/lib/data/contact";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -31,6 +31,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = getCaseStudyBySlug(slug);
   if (!study) notFound();
 
+  const contact = await getContactInfo();
   const showcaseHero = study.coverShowcaseTint !== false;
 
   return (
@@ -99,7 +100,7 @@ export default async function CaseStudyPage({ params }: Props) {
               ))}
             </ul>
             <div className="mt-8">
-              <Button href={SITE.bookingUrl} external className="w-full">
+              <Button href={contact.bookingUrl} external className="w-full">
                 Get started
               </Button>
             </div>

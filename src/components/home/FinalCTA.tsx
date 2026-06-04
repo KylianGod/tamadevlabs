@@ -1,10 +1,13 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/lib/constants";
+import { useSiteSettings } from "@/components/providers/SiteSettingsProvider";
 import { FinalCTAAnimation } from "@/components/home/FinalCTAAnimation";
 
 export function FinalCTA() {
+  const { bookingUrl } = useSiteSettings();
   return (
     <Section tone="cream" className="pb-28">
       <div className="relative overflow-hidden rounded-2xl bg-[var(--ink)] px-8 py-16 md:px-16 md:py-20">
@@ -27,7 +30,7 @@ export function FinalCTA() {
             </p>
 
             <Button
-              href={SITE.bookingUrl}
+              href={bookingUrl}
               external
               variant="dark"
               size="lg"
