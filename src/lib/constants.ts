@@ -19,6 +19,39 @@ export const NAV_LINKS = [
   { href: "/careers", label: "Careers" },
 ] as const;
 
+export type SocialPlatform = "linkedin" | "github" | "x";
+
+export type SocialLink = {
+  platform: SocialPlatform;
+  label: string;
+  href: string;
+};
+
+const SOCIAL_LINKS_RAW: SocialLink[] = [
+  {
+    platform: "linkedin",
+    label: "LinkedIn",
+    href:
+      process.env.NEXT_PUBLIC_LINKEDIN_URL ??
+      "https://www.linkedin.com/company/tamadevlabs",
+  },
+  {
+    platform: "github",
+    label: "GitHub",
+    href:
+      process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/tamadevlabs",
+  },
+  {
+    platform: "x",
+    label: "X",
+    href: process.env.NEXT_PUBLIC_X_URL ?? "https://x.com/tamadevlabs",
+  },
+];
+
+export const SOCIAL_LINKS = SOCIAL_LINKS_RAW.filter(
+  (link) => link.href.length > 0,
+);
+
 export const FOOTER_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },

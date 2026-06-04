@@ -4,7 +4,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useSiteSettings } from "@/components/providers/SiteSettingsProvider";
 import { LogoMark } from "@/components/ui/LogoMark";
-import { FOOTER_LINKS, SITE } from "@/lib/constants";
+import { SocialLinks } from "@/components/layout/SocialLinks";
+import { FOOTER_LINKS, SITE, SOCIAL_LINKS } from "@/lib/constants";
 
 export function Footer() {
   const { email, bookingUrl } = useSiteSettings();
@@ -29,6 +30,10 @@ export function Footer() {
               {email}
               <ArrowUpRight className="h-4 w-4" />
             </a>
+            <div className="mt-8">
+              <h3 className="eyebrow mb-4">Connect</h3>
+              <SocialLinks links={SOCIAL_LINKS} />
+            </div>
           </div>
 
           <div className="lg:col-span-3">
