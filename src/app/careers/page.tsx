@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MapPin, Clock, Laptop } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { Pagination } from "@/components/ui/Pagination";
 import { getPublishedRoles } from "@/lib/data/roles";
+import { getRoleExcerpt, hasMoreDescription } from "@/lib/roles/description";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -66,14 +68,24 @@ export default async function CareersPage({ searchParams }: PageProps) {
           {paginatedRoles.map((role) => (
             <article
               key={role.id}
-              className="surface-card flex flex-col gap-4 rounded-2xl p-6 md:flex-row md:items-center md:justify-between"
+              className="surface-card flex flex-col gap-4 rounded-2xl p-6 md:flex-row md:items-start md:justify-between"
             >
-              <div>
+              <div className="min-w-0 flex-1">
                 <h3 className="font-serif text-xl text-[var(--ink)]">
                   {role.title}
                 </h3>
                 <p className="mt-1 text-sm text-body-soft">{role.type}</p>
-                <p className="mt-2 text-sm text-body">{role.description}</p>
+                <p className="mt-2 text-sm text-body leading-relaxed">
+                  {getRoleExcerpt(role.description)}
+                </p>
+                {hasMoreDescription(role.description) ? (
+                  <Link
+                    href={`/careers/${role.id}`}
+                    className="mt-2 inline-block text-sm font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+                  >
+                    Read full description
+                  </Link>
+                ) : null}
               </div>
               <Button
                 href={`/careers/${role.id}/apply`}
@@ -95,7 +107,7 @@ export default async function CareersPage({ searchParams }: PageProps) {
       </Section>
 
       <Section tone="blend" className="!py-0 py-12 md:py-16">
-        <div className="surface-card-dark rounded-2xl p-8 text-center md:p-12 mb-3">
+        <div className="surface-card-dark rounded-2xl p-8 text-center md:p-12 mb-3 mt-2">
           <h2 className="font-serif text-2xl text-[var(--cream)] md:text-3xl">
             Don&apos;t see your role?
           </h2>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function GeneralApplicationPage() {
   return (
     <Section tone="cream" className="!py-0 pt-12 md:pt-16 pb-12 md:pb-16">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl mt-2 mb-3">
         <PageBreadcrumb backHref="/careers" backLabel="Back to careers" />
         <header className="text-center">
           <h1 className="heading-md text-[var(--ink)]">General application</h1>

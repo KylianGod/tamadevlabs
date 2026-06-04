@@ -2,26 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import type { OpenRole } from "@/lib/types/database";
 
 const FALLBACK_ROLES: Pick<OpenRole, "title" | "role_type" | "description">[] =
-  [
-    {
-      title: "Senior Full Stack Engineer",
-      role_type: "Full time · Remote",
-      description:
-        "Build Next.js and Node.js applications end to end. 5+ years experience, strong TypeScript, and SaaS delivery background.",
-    },
-    {
-      title: "AI / ML Engineer",
-      role_type: "Full time · Remote",
-      description:
-        "Design RAG systems, agents, and LLM integrations. Experience with OpenAI, LangChain, and production AI deployments.",
-    },
-    {
-      title: "Frontend Engineer",
-      role_type: "Contract · Remote",
-      description:
-        "Craft polished React interfaces and design systems. Strong eye for UX and performance on modern web apps.",
-    },
-  ];
+  [];
 
 export type PublicRole = {
   id: string;

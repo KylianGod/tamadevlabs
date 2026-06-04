@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/Button";
 import { RoleJobHeader } from "@/components/careers/RoleJobHeader";
+import { RoleDescription } from "@/components/careers/RoleDescription";
 import { getPublishedRoleById } from "@/lib/data/roles";
 
 type Props = { params: Promise<{ roleId: string }> };
@@ -38,7 +38,7 @@ export default async function RoleOverviewPage({ params }: Props) {
             About this role
           </h2>
           <p className="mt-1 text-sm text-body-soft">{role.type}</p>
-          <p className="mt-4 text-body leading-relaxed">{role.description}</p>
+          <RoleDescription text={role.description} className="mt-4 text-sm" />
           <div className="mt-8">
             <Button href={`/careers/${role.id}/apply`}>
               Apply for this role

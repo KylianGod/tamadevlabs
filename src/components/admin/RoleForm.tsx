@@ -62,7 +62,10 @@ export function RoleForm({ role, onCancel }: RoleFormProps) {
           />
         </div>
         <div>
-          <label htmlFor="sort_order" className="mb-1 block text-sm font-medium">
+          <label
+            htmlFor="sort_order"
+            className="mb-1 block text-sm font-medium"
+          >
             Sort order
           </label>
           <input
@@ -74,16 +77,19 @@ export function RoleForm({ role, onCancel }: RoleFormProps) {
           />
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="description" className="mb-1 block text-sm font-medium">
+          <label
+            htmlFor="description"
+            className="mb-1 block text-sm font-medium"
+          >
             Description
           </label>
           <textarea
             id="description"
             name="description"
             required
-            rows={4}
+            rows={14}
             defaultValue={role?.description}
-            className={`${inputClass} resize-none`}
+            className={`${inputClass}`}
           />
         </div>
         <div className="flex items-center gap-2 sm:col-span-2">
