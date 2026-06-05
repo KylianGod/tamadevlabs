@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { ReactElement, SVGProps } from "react";
 import type { SocialLink, SocialPlatform } from "@/lib/constants";
 
 type IconProps = SVGProps<SVGSVGElement>;
@@ -27,7 +27,7 @@ function XIcon(props: IconProps) {
   );
 }
 
-const ICONS: Record<SocialPlatform, (props: IconProps) => JSX.Element> = {
+const ICONS: Record<SocialPlatform, (props: IconProps) => ReactElement> = {
   linkedin: LinkedInIcon,
   github: GitHubIcon,
   x: XIcon,
