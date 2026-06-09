@@ -19,7 +19,7 @@ create table if not exists public.contact_info (
 );
 
 insert into public.contact_info (id, email, booking_url)
-values (1, 'hello@tamadevlabs.com', 'https://cal.com/tamadevlabs/discovery')
+values (1, 'hello@tamadevlabs.com', 'https://calendly.com/tamadevlabs/discovery')
 on conflict (id) do nothing;
 
 -- Seed sample roles

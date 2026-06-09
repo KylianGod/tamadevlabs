@@ -22,7 +22,7 @@ export default async function ContactPage() {
       description: "Best for project inquiries. Pick a time that works for you.",
       action: (
         <Button href={contact.bookingUrl} external>
-          Book on Cal.com
+          Book on calendly.com
         </Button>
       ),
     },

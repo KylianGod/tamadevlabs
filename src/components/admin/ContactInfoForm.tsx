@@ -54,10 +54,10 @@ export function ContactInfoForm({ contact }: { contact: ContactInfo | null }) {
           required
           defaultValue={contact?.booking_url ?? ""}
           className={inputClass}
-          placeholder="https://cal.com/tamadevlabs/discovery"
+          placeholder="https://calendly.com/tamadevlabs/discovery"
         />
         <p className="mt-1 text-xs text-[var(--ink-soft)]">
-          Cal.com or other scheduling link shown in CTAs site-wide.
+          calendly.com or other scheduling link shown in CTAs site-wide.
         </p>
       </div>
       {contact?.updated_at ? (

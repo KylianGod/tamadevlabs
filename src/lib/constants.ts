@@ -6,7 +6,7 @@ export const SITE = {
   email: "hello@tamadevlabs.com",
   bookingUrl:
     process.env.NEXT_PUBLIC_BOOKING_URL ??
-    "https://cal.com/tamadevlabs/discovery",
+    "https://calendly.com/tamadevlabs/discovery",
 } as const;
 
 export const NAV_LINKS = [
