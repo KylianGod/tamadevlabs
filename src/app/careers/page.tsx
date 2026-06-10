@@ -38,8 +38,8 @@ export default async function CareersPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <Section tone="cream" className="!py-0 pt-12 md:pt-16 pb-10 md:pb-14">
-        <div className="mt-5 [&_.eyebrow]:mb-2 [&_p.text-lg]:mt-3 [&_p.text-lg]:text-base">
+      <Section tone="cream" className="!py-0 pt-16 md:pt-20 pb-10 md:pb-14">
+        <div className="mt-8 [&_.eyebrow]:mb-2 [&_p.text-lg]:mt-3 [&_p.text-lg]:text-base">
           <PageHeader
             eyebrow="Careers"
             title={
