@@ -38,19 +38,17 @@ export default async function CareersPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <Section tone="cream" className="!py-0 pt-16 md:pt-20 pb-10 md:pb-14">
-        <div className="mt-8 [&_.eyebrow]:mb-2 [&_p.text-lg]:mt-3 [&_p.text-lg]:text-base">
-          <PageHeader
-            eyebrow="Careers"
-            title={
-              <>
-                Build with us from{" "}
-                <span className="text-[var(--accent)]">anywhere</span>
-              </>
-            }
-            description="We're a distributed team of senior engineers shipping AI and full stack products for clients worldwide."
-          />
-        </div>
+      <Section tone="cream" className="!py-0 pt-16 md:pt-24 pb-10 md:pb-14">
+        <PageHeader
+          eyebrow="Careers"
+          title={
+            <>
+              Build with us from{" "}
+              <span className="text-[var(--accent)]">anywhere</span>
+            </>
+          }
+          description="We're a distributed team of senior engineers shipping AI and full stack products for clients worldwide."
+        />
 
         <div className="mt-5 flex flex-wrap justify-center gap-6 md:gap-8">
           {PERKS.map(({ icon: Icon, label }) => (
