@@ -56,6 +56,13 @@ export function sanitizeRoleField(text: string): string {
   return cleanRolePlainText(text);
 }
 
+export function isRoleSubHeading(line: string): boolean {
+  const trimmed = line.trim();
+  if (!trimmed) return false;
+  if (ABOUT_ROLE_HEADING_REGEX.test(cleanRolePlainText(trimmed))) return false;
+  return isSectionHeading(trimmed);
+}
+
 function isSectionHeading(line: string): boolean {
   const trimmed = line.trim();
   if (!trimmed) return false;
