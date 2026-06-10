@@ -12,6 +12,8 @@ const EMBEDDED_MEDIA_REGEX =
 
 const SECTION_HEADING_REGEX =
   /^(responsibilities|requirements|what you(?:'ll| will) do|key responsibilities|role overview|qualifications|nice to have|bonus points?|about (?:the role|you))[\s:]*$/i;
+const ABOUT_ROLE_HEADING_REGEX = /^about\s+(?:the|this)\s+role\s*:?\s*$/i;
+const ABOUT_ROLE_PREFIX_REGEX = /^about\s+(?:the|this)\s+role\s*:?\s*/i;
 
 export function stripEmbeddedMedia(text: string): string {
   return text.replace(EMBEDDED_MEDIA_REGEX, " ");
@@ -33,11 +35,18 @@ export function cleanRolePlainText(line: string): string {
   );
 }
 
+function stripAboutRoleHeading(line: string): string {
+  const cleaned = cleanRolePlainText(line);
+  if (!cleaned) return "";
+  if (ABOUT_ROLE_HEADING_REGEX.test(cleaned)) return "";
+  return cleaned.replace(ABOUT_ROLE_PREFIX_REGEX, "").trim();
+}
+
 /** Sanitize a full role description while preserving paragraph breaks. */
 export function sanitizeRoleDescription(text: string): string {
   return text
     .split("\n")
-    .map((line) => cleanRolePlainText(line))
+    .map((line) => stripAboutRoleHeading(line))
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
