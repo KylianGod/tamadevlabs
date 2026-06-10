@@ -1,4 +1,4 @@
-import { stripEmojis } from "@/lib/roles/parse-description";
+import { cleanRolePlainText } from "@/lib/roles/parse-description";
 
 const DEFAULT_EXCERPT_LENGTH = 180;
 
@@ -10,9 +10,13 @@ export function getRoleExcerpt(
   const normalized = description.trim();
   if (!normalized) return "";
 
-  const firstParagraph = stripEmojis(
-    normalized.split(/\n\s*\n/)[0]?.replace(/\s+/g, " ").trim() ?? normalized,
-  );
+  const firstParagraph = (
+    normalized.split(/\n\s*\n/)[0] ?? normalized
+  )
+    .split("\n")
+    .map((line) => cleanRolePlainText(line))
+    .filter(Boolean)
+    .join(" ");
 
   if (firstParagraph.length <= maxLength) return firstParagraph;
 

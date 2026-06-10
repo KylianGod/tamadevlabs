@@ -41,17 +41,15 @@ export function RoleDescription({ text, className = "" }: RoleDescriptionProps) 
               return (
                 <li
                   key={`${blockIndex}-${itemIndex}`}
-                  className="flex items-start gap-3 text-[var(--ink)]"
+                  className="grid grid-cols-[1.625rem_1fr] items-start gap-3 text-[var(--ink)]"
                 >
                   <CareersEmojiIcon
                     src={icon}
                     alt=""
                     size={26}
-                    className="mt-0.5"
+                    className="mt-0.5 justify-self-center"
                   />
-                  <span className="min-w-0 flex-1 text-sm leading-relaxed text-body">
-                    {item}
-                  </span>
+                  <span className="text-sm leading-relaxed text-body">{item}</span>
                 </li>
               );
             })}

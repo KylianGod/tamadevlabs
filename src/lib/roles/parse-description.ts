@@ -3,12 +3,12 @@ export type DescriptionBlock =
   | { type: "list"; items: string[] };
 
 const EMOJI_REGEX = /\p{Extended_Pictographic}/gu;
+const EMOJI_PREFIX_REGEX = /^[\s\p{Extended_Pictographic}\uFE0F\u200D]+/u;
 const BULLET_LINE_REGEX = /^[\s✅✓☑✔•\-*️]+/u;
 
 /** Icons cycled for responsibility-style bullet lists. */
 export const RESPONSIBILITY_ICON_PATHS = [
   "/careers/icons/gear.svg",
-  "/careers/icons/rocket.svg",
   "/careers/icons/laptop.svg",
   "/careers/icons/chart.svg",
   "/careers/icons/tools.svg",
@@ -18,17 +18,28 @@ export const RESPONSIBILITY_ICON_PATHS = [
 ] as const;
 
 export function stripEmojis(text: string): string {
-  return text.replace(EMOJI_REGEX, "").replace(/\s+/g, " ").trim();
+  return text
+    .replace(EMOJI_REGEX, "")
+    .replace(/\uFE0F/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function cleanRolePlainText(line: string): string {
+  return stripEmojis(
+    line.replace(BULLET_LINE_REGEX, "").replace(EMOJI_PREFIX_REGEX, "").trim(),
+  );
 }
 
 function isBulletLine(line: string): boolean {
   const trimmed = line.trim();
   if (!trimmed) return false;
-  return BULLET_LINE_REGEX.test(trimmed);
+  if (BULLET_LINE_REGEX.test(trimmed)) return true;
+  return EMOJI_PREFIX_REGEX.test(trimmed);
 }
 
 function stripBulletLine(line: string): string {
-  return stripEmojis(line.replace(BULLET_LINE_REGEX, "").trim());
+  return cleanRolePlainText(line);
 }
 
 export function parseRoleDescription(text: string): DescriptionBlock[] {
