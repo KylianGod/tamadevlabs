@@ -1,6 +1,7 @@
 export type DescriptionBlock =
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "heading"; text: string }
+  | { type: "list"; title?: string; items: string[] };
 
 const EMOJI_REGEX = /\p{Extended_Pictographic}/gu;
 const EMOJI_PREFIX_REGEX = /^[\s\p{Extended_Pictographic}\uFE0F\u200D]+/u;
@@ -8,6 +9,9 @@ const BULLET_LINE_REGEX = /^[\s✅✓☑✔•\-*️]+/u;
 const ROCKET_EMOJI_REGEX = /(?:\u{1F680}|\u{1F6F8}|\uD83D\uDE80|\uD83D\uDEF8)/gu;
 const EMBEDDED_MEDIA_REGEX =
   /<\s*(?:img|svg)\b[^>]*\/?>|<\/\s*svg\s*>|!\[[^\]]*\]\([^)]*\)|https?:\/\/[^\s)*"]*(?:rocket|fluent-emoji)[^\s)*"]*|\/careers\/icons\/[^\s)"']+/gi;
+
+const SECTION_HEADING_REGEX =
+  /^(responsibilities|requirements|what you(?:'ll| will) do|key responsibilities|role overview|qualifications|nice to have|bonus points?|about (?:the role|you))[\s:]*$/i;
 
 export function stripEmbeddedMedia(text: string): string {
   return text.replace(EMBEDDED_MEDIA_REGEX, " ");
@@ -43,6 +47,18 @@ export function sanitizeRoleField(text: string): string {
   return cleanRolePlainText(text);
 }
 
+function isSectionHeading(line: string): boolean {
+  const trimmed = line.trim();
+  if (!trimmed) return false;
+  if (SECTION_HEADING_REGEX.test(trimmed)) return true;
+  if (SECTION_HEADING_REGEX.test(trimmed.replace(/:\s*$/, ""))) return true;
+  return /^[A-Za-z][A-Za-z\s/&'()-]{2,48}:$/.test(trimmed);
+}
+
+function normalizeHeading(line: string): string {
+  return cleanRolePlainText(line.replace(/:\s*$/, ""));
+}
+
 function isBulletLine(line: string): boolean {
   const trimmed = line.trim();
   if (!trimmed) return false;
@@ -52,6 +68,25 @@ function isBulletLine(line: string): boolean {
 
 function stripBulletLine(line: string): string {
   return cleanRolePlainText(line);
+}
+
+function looksLikeListSection(lines: string[]): boolean {
+  if (lines.length < 2) return false;
+
+  const items = lines.map(stripBulletLine).filter(Boolean);
+  if (items.length < 2) return false;
+
+  return items.every((item) => item.length <= 220);
+}
+
+function pushListBlock(
+  blocks: DescriptionBlock[],
+  items: string[],
+  title?: string,
+) {
+  const cleaned = items.map(stripBulletLine).filter(Boolean);
+  if (!cleaned.length) return;
+  blocks.push({ type: "list", title, items: cleaned });
 }
 
 export function parseRoleDescription(text: string): DescriptionBlock[] {
@@ -69,14 +104,33 @@ export function parseRoleDescription(text: string): DescriptionBlock[] {
 
     if (!lines.length) continue;
 
+    const headingIndex = lines.findIndex(isSectionHeading);
+
+    if (headingIndex >= 0) {
+      const before = lines.slice(0, headingIndex);
+      const heading = normalizeHeading(lines[headingIndex]);
+      const after = lines.slice(headingIndex + 1);
+
+      if (before.length) {
+        blocks.push({
+          type: "paragraph",
+          text: stripEmojis(before.map(stripBulletLine).join(" ")),
+        });
+      }
+
+      pushListBlock(
+        blocks,
+        after.filter((line) => !isSectionHeading(line)),
+        heading || "Responsibilities",
+      );
+      continue;
+    }
+
     const bulletLines = lines.filter(isBulletLine);
     const allBullets = bulletLines.length === lines.length && lines.length > 0;
 
     if (allBullets) {
-      blocks.push({
-        type: "list",
-        items: lines.map(stripBulletLine).filter(Boolean),
-      });
+      pushListBlock(blocks, lines, "Responsibilities");
       continue;
     }
 
@@ -85,19 +139,21 @@ export function parseRoleDescription(text: string): DescriptionBlock[] {
       if (proseLines.length) {
         blocks.push({
           type: "paragraph",
-          text: stripEmojis(proseLines.join(" ")),
+          text: stripEmojis(proseLines.map(stripBulletLine).join(" ")),
         });
       }
-      blocks.push({
-        type: "list",
-        items: bulletLines.map(stripBulletLine).filter(Boolean),
-      });
+      pushListBlock(blocks, bulletLines, "Responsibilities");
+      continue;
+    }
+
+    if (looksLikeListSection(lines)) {
+      pushListBlock(blocks, lines, "Responsibilities");
       continue;
     }
 
     blocks.push({
       type: "paragraph",
-      text: stripEmojis(lines.join(" ")),
+      text: stripEmojis(lines.map(stripBulletLine).join(" ")),
     });
   }
 
