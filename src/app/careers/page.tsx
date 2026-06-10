@@ -32,7 +32,7 @@ export default async function CareersPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <Section tone="cream" className="!py-0 pt-24 md:pt-32 pb-10 md:pb-14">
+      <Section tone="cream" className="!pt-28 md:!pt-40 !pb-10 md:!pb-14">
         <PageHeader
           eyebrow="Careers"
           title={
