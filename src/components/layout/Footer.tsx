@@ -31,7 +31,6 @@ export function Footer() {
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <div className="mt-8">
-              <h3 className="eyebrow mb-4">Connect</h3>
               <SocialLinks links={SOCIAL_LINKS} />
             </div>
           </div>
