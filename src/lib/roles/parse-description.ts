@@ -6,17 +6,6 @@ const EMOJI_REGEX = /\p{Extended_Pictographic}/gu;
 const EMOJI_PREFIX_REGEX = /^[\s\p{Extended_Pictographic}\uFE0F\u200D]+/u;
 const BULLET_LINE_REGEX = /^[\s✅✓☑✔•\-*️]+/u;
 
-/** Icons cycled for responsibility-style bullet lists. */
-export const RESPONSIBILITY_ICON_PATHS = [
-  "/careers/icons/gear.svg",
-  "/careers/icons/laptop.svg",
-  "/careers/icons/chart.svg",
-  "/careers/icons/tools.svg",
-  "/careers/icons/memo.svg",
-  "/careers/icons/bulb.svg",
-  "/careers/icons/package.svg",
-] as const;
-
 export function stripEmojis(text: string): string {
   return text
     .replace(EMOJI_REGEX, "")

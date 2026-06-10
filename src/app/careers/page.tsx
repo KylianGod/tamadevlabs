@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Clock, Laptop } from "lucide-react";
+import { CAREERS_PERKS } from "@/lib/careers/icons";
 import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
@@ -15,12 +15,6 @@ export const metadata: Metadata = {
 };
 
 const ROLES_PER_PAGE = 5;
-
-const PERKS = [
-  { icon: Laptop, label: "Fully remote" },
-  { icon: Clock, label: "Flexible hours" },
-  { icon: MapPin, label: "Global team" },
-];
 
 type PageProps = {
   searchParams: Promise<{ page?: string }>;
@@ -51,7 +45,7 @@ export default async function CareersPage({ searchParams }: PageProps) {
         />
 
         <div className="mt-5 flex flex-wrap justify-center gap-6 md:gap-8">
-          {PERKS.map(({ icon: Icon, label }) => (
+          {CAREERS_PERKS.map(({ Icon, label }) => (
             <div key={label} className="flex items-center gap-2 text-body">
               <Icon className="h-5 w-5 text-[var(--ink)]" />
               <span className="text-sm">{label}</span>
