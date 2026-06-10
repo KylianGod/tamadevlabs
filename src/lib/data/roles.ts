@@ -1,4 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
+import {
+  sanitizeRoleDescription,
+  sanitizeRoleField,
+} from "@/lib/roles/parse-description";
 import type { OpenRole } from "@/lib/types/database";
 
 const FALLBACK_ROLES: Pick<OpenRole, "title" | "role_type" | "description">[] =
@@ -10,6 +14,20 @@ export type PublicRole = {
   type: string;
   description: string;
 };
+
+function toPublicRole(row: {
+  id: string;
+  title: string;
+  role_type: string;
+  description: string;
+}): PublicRole {
+  return {
+    id: row.id,
+    title: sanitizeRoleField(row.title),
+    type: sanitizeRoleField(row.role_type),
+    description: sanitizeRoleDescription(row.description),
+  };
+}
 
 export async function getPublishedRoleById(
   id: string,
@@ -23,12 +41,14 @@ export async function getPublishedRoles(): Promise<PublicRole[]> {
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
     !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   ) {
-    return FALLBACK_ROLES.map((role, index) => ({
-      id: `fallback-${index}`,
-      title: role.title,
-      type: role.role_type,
-      description: role.description,
-    }));
+    return FALLBACK_ROLES.map((role, index) =>
+      toPublicRole({
+        id: `fallback-${index}`,
+        title: role.title,
+        role_type: role.role_type,
+        description: role.description,
+      }),
+    );
   }
 
   try {
@@ -40,27 +60,26 @@ export async function getPublishedRoles(): Promise<PublicRole[]> {
       .order("sort_order", { ascending: true });
 
     if (error || !data?.length) {
-      return FALLBACK_ROLES.map((role, index) => ({
-        id: `fallback-${index}`,
-        title: role.title,
-        type: role.role_type,
-        description: role.description,
-      }));
+      return FALLBACK_ROLES.map((role, index) =>
+        toPublicRole({
+          id: `fallback-${index}`,
+          title: role.title,
+          role_type: role.role_type,
+          description: role.description,
+        }),
+      );
     }
 
-    return data.map((row) => ({
-      id: row.id,
-      title: row.title,
-      type: row.role_type,
-      description: row.description,
-    }));
+    return data.map((row) => toPublicRole(row));
   } catch {
-    return FALLBACK_ROLES.map((role, index) => ({
-      id: `fallback-${index}`,
-      title: role.title,
-      type: role.role_type,
-      description: role.description,
-    }));
+    return FALLBACK_ROLES.map((role, index) =>
+      toPublicRole({
+        id: `fallback-${index}`,
+        title: role.title,
+        role_type: role.role_type,
+        description: role.description,
+      }),
+    );
   }
 }
 

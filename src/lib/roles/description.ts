@@ -1,8 +1,22 @@
-import { cleanRolePlainText } from "@/lib/roles/parse-description";
+import {
+  cleanRolePlainText,
+  parseRoleDescription,
+} from "@/lib/roles/parse-description";
 
 const DEFAULT_EXCERPT_LENGTH = 180;
 
-/** First paragraph or truncated preview for list cards. */
+function truncateText(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+
+  const truncated = text.slice(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(" ");
+  const cut =
+    lastSpace > maxLength * 0.6 ? truncated.slice(0, lastSpace) : truncated;
+
+  return `${cut}…`;
+}
+
+/** First prose paragraph for list cards — no bullets or embedded icons. */
 export function getRoleExcerpt(
   description: string,
   maxLength = DEFAULT_EXCERPT_LENGTH,
@@ -10,21 +24,19 @@ export function getRoleExcerpt(
   const normalized = description.trim();
   if (!normalized) return "";
 
-  const firstParagraph = (
-    normalized.split(/\n\s*\n/)[0] ?? normalized
-  )
-    .split("\n")
-    .map((line) => cleanRolePlainText(line))
-    .filter(Boolean)
-    .join(" ");
+  const blocks = parseRoleDescription(normalized);
+  const paragraph = blocks.find((block) => block.type === "paragraph");
 
-  if (firstParagraph.length <= maxLength) return firstParagraph;
+  if (paragraph?.type === "paragraph" && paragraph.text) {
+    return truncateText(paragraph.text, maxLength);
+  }
 
-  const truncated = firstParagraph.slice(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(" ");
-  const cut = lastSpace > maxLength * 0.6 ? truncated.slice(0, lastSpace) : truncated;
+  const firstList = blocks.find((block) => block.type === "list");
+  if (firstList?.type === "list" && firstList.items.length) {
+    return truncateText(firstList.items.join(" "), maxLength);
+  }
 
-  return `${cut}…`;
+  return "";
 }
 
 export function hasMoreDescription(
@@ -34,9 +46,20 @@ export function hasMoreDescription(
   const normalized = description.trim();
   if (!normalized) return false;
 
-  const paragraphs = normalized.split(/\n\s*\n/).filter(Boolean);
-  if (paragraphs.length > 1) return true;
+  const blocks = parseRoleDescription(normalized);
+  if (blocks.length > 1) return true;
 
-  const collapsed = paragraphs[0]?.replace(/\s+/g, " ").trim() ?? "";
-  return collapsed.length > maxLength;
+  const paragraph = blocks.find((block) => block.type === "paragraph");
+  if (paragraph?.type === "paragraph" && paragraph.text.length > maxLength) {
+    return true;
+  }
+
+  const firstList = blocks.find((block) => block.type === "list");
+  if (firstList?.type === "list") {
+    const joined = firstList.items.join(" ");
+    return joined.length > maxLength || blocks.length > 1;
+  }
+
+  return false;
 }
+
