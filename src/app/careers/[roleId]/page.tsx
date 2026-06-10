@@ -37,7 +37,7 @@ export default async function RoleOverviewPage({ params }: Props) {
           <h2 className="font-serif text-lg text-[var(--ink)]">
             About this role
           </h2>
-          <p className="mt-1 text-justify text-sm text-body-soft">{role.type}</p>
+          <p className="mt-1 text-sm text-body-soft">{role.type}</p>
           <RoleDescription text={role.description} className="mt-4 text-sm" />
           <div className="mt-8">
             <Button href={`/careers/${role.id}/apply`}>

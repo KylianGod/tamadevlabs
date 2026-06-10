@@ -75,7 +75,7 @@ function normalizeHeading(line: string): string {
   return cleanRolePlainText(line.replace(/:\s*$/, ""));
 }
 
-export function isRoleBulletLine(line: string): boolean {
+function isBulletLine(line: string): boolean {
   const trimmed = line.trim();
   if (!trimmed) return false;
   if (BULLET_LINE_REGEX.test(trimmed)) return true;
@@ -142,7 +142,7 @@ export function parseRoleDescription(text: string): DescriptionBlock[] {
       continue;
     }
 
-    const bulletLines = lines.filter(isRoleBulletLine);
+    const bulletLines = lines.filter(isBulletLine);
     const allBullets = bulletLines.length === lines.length && lines.length > 0;
 
     if (allBullets) {
@@ -151,7 +151,7 @@ export function parseRoleDescription(text: string): DescriptionBlock[] {
     }
 
     if (bulletLines.length > 0) {
-      const proseLines = lines.filter((line) => !isRoleBulletLine(line));
+      const proseLines = lines.filter((line) => !isBulletLine(line));
       if (proseLines.length) {
         blocks.push({
           type: "paragraph",
