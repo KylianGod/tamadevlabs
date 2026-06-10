@@ -106,8 +106,8 @@ export default async function CareersPage({ searchParams }: PageProps) {
         </div>
       </Section>
 
-      <Section tone="blend" className="!py-0 py-12 md:py-16">
-        <div className="surface-ink-panel mb-3 mt-2">
+      <Section tone="blend">
+        <div className="surface-card-dark rounded-2xl p-8 text-center md:p-12">
           <h2 className="font-serif text-2xl text-[var(--cream)] md:text-3xl">
             Don&apos;t see your role?
           </h2>
