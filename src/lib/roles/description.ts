@@ -1,3 +1,5 @@
+import { stripEmojis } from "@/lib/roles/parse-description";
+
 const DEFAULT_EXCERPT_LENGTH = 180;
 
 /** First paragraph or truncated preview for list cards. */
@@ -8,8 +10,9 @@ export function getRoleExcerpt(
   const normalized = description.trim();
   if (!normalized) return "";
 
-  const firstParagraph =
-    normalized.split(/\n\s*\n/)[0]?.replace(/\s+/g, " ").trim() ?? normalized;
+  const firstParagraph = stripEmojis(
+    normalized.split(/\n\s*\n/)[0]?.replace(/\s+/g, " ").trim() ?? normalized,
+  );
 
   if (firstParagraph.length <= maxLength) return firstParagraph;
 

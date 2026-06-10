@@ -252,6 +252,11 @@ body {
   color: var(--ink);
 }
 
+.careers-emoji-icon {
+  display: block;
+  object-fit: contain;
+}
+
 @media (min-width: 768px) {
   .back-to-top {
     right: 1.75rem;

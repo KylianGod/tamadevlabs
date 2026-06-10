@@ -52,7 +52,7 @@ export function ApplicationForm({ roleTitle, roleId }: ApplicationFormProps) {
 
   if (state.success) {
     return (
-      <p className="rounded-2xl border border-green-200 bg-green-50 p-6 text-center text-sm text-green-900">
+      <p className="surface-card rounded-2xl p-6 text-center text-sm text-body">
         Thank you! Your application for <strong>{roleTitle}</strong> has been
         submitted. We&apos;ll be in touch soon.
       </p>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Clock, Laptop } from "lucide-react";
+import { CareersEmojiIcon } from "@/components/careers/CareersEmojiIcon";
 import { Section } from "@/components/ui/Section";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 const ROLES_PER_PAGE = 5;
 
 const PERKS = [
-  { icon: Laptop, label: "Fully remote" },
-  { icon: Clock, label: "Flexible hours" },
-  { icon: MapPin, label: "Global team" },
+  { icon: "/careers/icons/laptop.svg", label: "Fully remote" },
+  { icon: "/careers/icons/clock.svg", label: "Flexible hours" },
+  { icon: "/careers/icons/globe.svg", label: "Global team" },
 ];
 
 type PageProps = {
@@ -53,9 +53,9 @@ export default async function CareersPage({ searchParams }: PageProps) {
         </div>
 
         <div className="mt-5 flex flex-wrap justify-center gap-6 md:gap-8">
-          {PERKS.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-2 text-body">
-              <Icon className="h-5 w-5 text-[var(--ink)]" />
+          {PERKS.map(({ icon, label }) => (
+            <div key={label} className="flex items-center gap-2.5 text-body">
+              <CareersEmojiIcon src={icon} alt="" size={24} />
               <span className="text-sm">{label}</span>
             </div>
           ))}
@@ -107,7 +107,7 @@ export default async function CareersPage({ searchParams }: PageProps) {
       </Section>
 
       <Section tone="blend" className="!py-0 py-12 md:py-16">
-        <div className="surface-card-dark rounded-2xl p-8 text-center md:p-12 mb-3 mt-2">
+        <div className="surface-ink-panel mb-3 mt-2">
           <h2 className="font-serif text-2xl text-[var(--cream)] md:text-3xl">
             Don&apos;t see your role?
           </h2>
